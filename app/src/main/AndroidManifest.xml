@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.yousails.chrenai"
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          android:installLocation="auto"
+          android:versionCode="3"
+          android:versionName="2.2.0">
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"/>
+
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE"/>
+
+    <!-- 访问网权限 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- 读写网权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <!-- GPS定位权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <!-- 添加可以向外拨打电话的权限 -->
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+
+    <application
+        android:name=".config.ModelApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/icon_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Global"
+        tools:replace="android:label">
+
+        <!-- android:theme="@style/AppTheme" -->
+        <activity
+            android:name=".login.ui.SplashActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AppCompat"
+            >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".app.ui.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <!-- android:launchMode="singleTask" -->
+
+        <activity
+            android:name=".login.ui.LoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"
+            />
+        <activity
+            android:name=".login.ui.RegisterActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".login.ui.RegInforActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".login.ui.SexSelectedActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 实名认证 -->
+        <activity
+            android:name=".login.ui.AuthActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 学历、宗教选择页 -->
+        <activity
+            android:name=".login.ui.DataSelectActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".login.ui.WriteActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".login.ui.CardActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 认证完成页面 -->
+        <activity
+            android:name=".login.ui.CertCompleteActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".publish.Activity.EditorActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".home.ui.SearchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity
+            android:name=".home.ui.BannerActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 活动详情 -->
+        <activity
+            android:name=".home.ui.ActivitDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".home.ui.CityActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 讨论 -->
+        <activity
+            android:name=".home.ui.CommentsAcitivity"
+            android:screenOrientation="portrait"/>
+        <!-- android:windowSoftInputMode="adjustPan" -->
+
+
+        <!-- 某个评论的回复列表 -->
+        <activity
+            android:name=".home.ui.ReplyActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 报名表页面 -->
+        <activity
+            android:name=".home.ui.EnrollActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 报名条件选择页面 -->
+        <activity
+            android:name=".home.ui.SelectActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 取消报名页 -->
+        <activity
+            android:name=".home.ui.DeleteEnrollActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 活动位置页 -->
+        <activity
+            android:name=".home.ui.AddressActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 聊天页面 -->
+        <activity
+            android:name=".home.ui.ChatActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 显示下载大图页面 -->
+        <activity
+            android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/horizontal_slide"/>
+
+        <!-- 聊天定位页面 -->
+        <activity
+            android:name="com.hyphenate.easeui.ui.EaseBaiduMapActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/horizontal_slide"/>
+
+        <!-- 我的页面 -->
+        <activity
+            android:name=".person.ui.MypageActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 个人资料页面 -->
+        <activity
+            android:name=".person.ui.PersonProfileActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 我的足迹 -->
+        <activity
+            android:name=".person.ui.FootMarkActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 设置 -->
+        <activity
+            android:name=".person.ui.SettingActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 关于我们 -->
+        <activity
+            android:name=".person.ui.AboutActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 意见反馈 -->
+        <activity
+            android:name=".person.ui.FeedbackActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 更改手机号 -->
+        <activity
+            android:name=".person.ui.UpatePhoneActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 个人主页 -->
+        <activity
+            android:name=".person.ui.PersonActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 修改昵称页 -->
+        <activity
+            android:name=".person.ui.NicknameActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".zxing.camera.activity.CaptureActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name=".person.ui.MyActsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name=".person.ui.MyEnjoyActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name=".person.ui.ConversationListActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".person.ui.AssistantActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".person.ui.ActivityFeedbackActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".person.ui.ReplyActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|stateUnchanged"/>
+        <activity
+            android:name=".person.ui.ActDelReasonActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|stateUnchanged"/>
+        <!-- 短信验证码广播接收者 -->
+        <!--
+        <receiver android:name=".login.receiver.SMSBroadcastReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+        -->
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v2.2"/>
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="ZcKRQEgpzST2qNxdDwMT16crb6GONbZG"/>
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5951f74cc8957653b7000099"></meta-data>
+
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}"/>
+        <!-- 易信回调activity -->
+        <activity
+            android:name="com.umeng.socialize.media.WBShareCallBackActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <!-- 新浪微博回调activity -->
+        <activity
+            android:name="com.sina.weibo.sdk.share.WbShareTransActivity"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <!-- qq回调activity -->
+        <activity
+            android:name="com.umeng.qq.tencent.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="tencent100424468"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.umeng.qq.tencent.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <!-- 设置环信应用的AppKey -->
+        <!-- 测试环境 AppKey： 1109170509178854#sandbox -->
+        <!-- 正式环境 AppKey：1109170509178854#renaicishan -->
+        <meta-data
+            android:name="EASEMOB_APPKEY"
+            android:value="1109170509178854#renaicishan"/>
+        <!-- 声明SDK所需的service SDK核心功能 -->
+        <service
+            android:name="com.hyphenate.chat.EMChatService"
+            android:exported="true"/>
+        <service
+            android:name="com.hyphenate.chat.EMJobService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <!-- 声明SDK所需的receiver -->
+        <receiver android:name="com.hyphenate.chat.EMMonitorReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+
+                <data android:scheme="package"/>
+            </intent-filter>
+            <!-- 可选filter -->
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".publish.ui.PublishActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity
+            android:name=".publish.ui.CategoryChoiceActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".publish.ui.ApplySettingActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".publish.ui.AddApplyItemActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".publish.ui.H5Activity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".publish.ui.AddressChoiceActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".publish.ui.ActPromulgateActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name="com.android.camera.CropImage"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".person.ui.MyCodeActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 报名/签到/缴费 -->
+        <activity
+            android:name=".person.ui.MoreOperActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 我的发布 报名 -->
+        <activity
+            android:name=".person.ui.RegisterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <!-- 报名者详情 -->
+        <activity
+            android:name=".person.ui.RegistDetailActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 追加报名 -->
+        <activity
+            android:name=".person.ui.AddRegisterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <!-- 取消报名 -->
+        <activity
+            android:name=".person.ui.CanceledRegistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
+        <!-- 签到工时页面 -->
+        <activity
+            android:name=".person.ui.SignInActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
+        <!-- 缴费管理页面 -->
+        <activity
+            android:name=".person.ui.PaymentManageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
+        <!-- 缴费详情页面 -->
+        <activity
+            android:name=".person.ui.PaymentDetailsActiviity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 追加报名申请页面 -->
+        <activity
+            android:name=".person.ui.AddRegistDetailActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 添加缴费/添加退费页面 -->
+        <activity
+            android:name=".person.ui.PaymentActiviity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 活动签到页面 -->
+        <activity
+            android:name=".person.ui.AttenStatisActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 委托管理页面 -->
+        <activity
+            android:name=".person.ui.EntrustedActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
+        <!-- 委托详情页面 -->
+        <activity
+            android:name=".person.ui.EntrusteDetailActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 委托设置页面 -->
+        <activity
+            android:name=".person.ui.EntrusteSettingActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".home.ui.ActMapActivity"/>
+        <activity android:name=".home.ui.MapActActivity"></activity>
+
+        <activity
+            android:name=".home.ui.ProtocolActivity"
+            android:screenOrientation="portrait"/>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.yousails.chrenai.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+    </application>
+
+</manifest>
