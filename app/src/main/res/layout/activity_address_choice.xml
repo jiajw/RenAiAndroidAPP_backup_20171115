@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/publish_title_height"
+        android:background="@android:color/white"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/publish_title_height"
+            android:layout_height="@dimen/publish_title_height"
+            android:background="@drawable/selector_normal_white_gray_bg"
+            android:clickable="true"
+            android:padding="15dp"
+            android:src="@mipmap/common_left_arrow" />
+
+        <EditText
+            android:id="@+id/tv_search_input"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="7dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_address_search"
+            android:gravity="center_vertical"
+            android:hint="请输入小区／学校／大厦等搜索"
+            android:imeOptions="actionSearch"
+            android:maxLines="1"
+            android:paddingLeft="15dp"
+            android:singleLine="true"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="@dimen/publish_title_height"
+            android:layout_height="@dimen/publish_title_height"
+            android:background="@drawable/selector_normal_white_gray_bg"
+            android:clickable="true"
+            android:padding="15dp"
+            android:src="@mipmap/common_search" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/e0e0e0" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.baidu.mapapi.map.MapView
+            android:id="@+id/map_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="36dp"/>
+
+        <ImageView
+            android:id="@+id/iv_focus_mark"
+            android:layout_width="15dp"
+            android:layout_height="24dp"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/icon_focus_mark" />
+
+        <ImageView
+            android:id="@+id/iv_back_to_my_position"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="64dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ic_gps_location" />
+
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center_vertical"
+            android:background="@color/text_blue1"
+            android:layout_alignParentBottom="true"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:text="这是当前位置"/>
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/input_container_root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/input_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:scrollbars="none" />
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/poi_container_root_parent"
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+
+        <Button
+            android:id="@+id/btn_sure"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:background="@drawable/selector_location_choice_button"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true" />
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/poi_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/btn_sure"
+            android:background="@android:color/white"
+            android:scrollbars="none" />
+
+        <ProgressBar
+            android:id="@+id/poi_loading"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>
+

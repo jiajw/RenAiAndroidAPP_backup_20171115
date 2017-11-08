@@ -1,0 +1,105 @@
+<resources>
+    <string name="app_name">仁爱慈善</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- main activity -->
+    <string name="home_main_tab">首页</string>
+    <string name="home_activities_tab">发布</string>
+    <string name="home_person_tab">我的</string>
+    <string name="login_hide_phone">请输入手机号</string>
+    <string name="login_hide_pwd">请输入验证码</string>
+    <string name="login_register">新注册</string>
+    <string name="phone_register">手机注册</string>
+    <string name="register_infor">注册信息</string>
+    <string name="register_nickname">请输入昵称(1-10个字符)</string>
+    <string name="entry_nickname">请输入昵称</string>
+    <string name="entry_nickname_error">昵称请输入错误，请检查!</string>
+    <string name="register_sex">请选择性别</string>
+    <string name="sex_text">性别</string>
+    <string name="login_text">登录</string>
+    <string name="exit_text">退出</string>
+    <string name="next_text">下一步</string>
+    <string name="phone_error_tips">手机号输入错误，请检查!</string>
+    <string name="send_again">重新发送</string>
+
+    <string name="drawer_layout_open">Open</string>
+    <string name="drawer_layout_close">Close</string>
+
+    <string name="publish_active_name">活动标题</string>
+    <string name="publish_active_name_hint">请输入活动标题</string>
+
+    <string name="publish_active_org">活动从属</string>
+    <string name="publish_active_org_hint">-请选择-</string>
+
+    <string name="publish_active_begin_time">开始时间</string>
+    <string name="publish_active_end_time">结束时间</string>
+
+    <string name="publish_active_location">活动地点</string>
+    <string name="publish_active_desc">活动描述</string>
+
+    <string name="publish_active_member_limit">人数限制</string>
+    <string name="publish_active_member_limit_hint">输入0为不限人数</string>
+
+    <string name="publish_active_apply_setting">报名设置</string>
+
+    <string name="publish_active_is_charge">是否收费</string>
+
+    <string name="publish_active_sign">签到审核</string>
+
+    <string name="publish_active_category_title">活动从属</string>
+
+    <string name="apply_single_input">单行文本</string>
+
+    <string name="apply_multi_input">多行文本</string>
+
+    <string name="apply_single_choice">单选框</string>
+
+    <string name="apply_multi_choice">多选框</string>
+    <string name="search_hide_text">搜索活动关键字</string>
+    <string name="selected_date_text">选择日期</string>
+    <string name="selected_text">搜索</string>
+    <string name="filter_text">筛选</string>
+
+    <string name="loading">加载更多</string>
+    <string name="act_promulgate">活动地点</string>
+
+    <string name="umeng_sharebutton_copy">复制文本</string>
+    <string name="umeng_sharebutton_copyurl">复制连接</string>
+
+    <string name="photo_tips">1.请分别上传3张照片,前两张为省份证件原件照，另外一张为本分手持身份证的正面合影。\n 2.请确保五官、证件内页内容均清晰可见(证件照可为：中国人民共和国省份证、护照、台胞证)</string>
+
+    <string name="txt_my_code">我的二维码</string>
+    <string name="txt_my_act">我的发布</string>
+    <string name="txt_my_conversation">我的会话</string>
+    <string name="txt_my_part">我的参与</string>
+    <string name="txt_my_back">返回</string>
+    <string name="txt_scan">扫一扫</string>
+
+
+    <string name="text_name_error">您输入的姓名有误，请重新输入</string>
+    <string name="text_ident_error">您输入的身份证号有误，请重新输入</string>
+
+
+
+    <!--permission相关-->
+    <string name="permission_hint">该功能,需要您授权才能使用,请开启权限。</string>
+    <string name="permission_camera_user_hint">test onRequestPermissionsResult: 没有此权限，无法开启这个功能，请开启权限。请打开照相机权限</string>
+    <string name="permission_camera_user_hint1">test shouldShowRequestPermissionRationale: 没有此权限，无法开启这个功能，请开启权限。请打开照相机权限</string>
+
+
+    <string name="permission_get_accounts_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_GET_ACCOUNTS</string>
+    <string name="permission_read_phone_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_READ_PHONE_STATE</string>
+    <string name="permission_call_phone_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_CALL_PHONE</string>
+    <string name="permission_camera_hint">需要您授权拍照功能才能使用</string>
+    <string name="permission_access_fine_location_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_ACCESS_FINE_LOCATION</string>
+    <string name="permission_access_coarse_location_hint">需要您授权定位功能才能使用</string>
+    <string name="permission_read_external_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_READ_EXTERNAL_STORAGE</string>
+    <string name="permission_white_external_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_WRITE_EXTERNAL_STORAGE</string>
+    <string name="permission_recode_audio_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_RECORD_AUDIO</string>
+    <string name="protocol_text">我已阅读并同意&lt;&lt;志愿活动参与须知&gt;&gt;</string>
+    <string name="service_protocol_text">我已阅读并同意《志愿者服务协议》</string>
+
+
+
+    <string name="soft_update_tip">为了让您获得更好的体验，您更新至最新版本，体验更完美。</string>
+</resources>

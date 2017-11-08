@@ -1,0 +1,37 @@
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.yousails.chrenai.home.ui.SearchActivity">
+
+    <!-- 界面主要内容布局区 -->
+    <RelativeLayout
+        android:id="@+id/content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/title_layout"
+            layout="@layout/activity_search" />
+
+
+    </RelativeLayout>
+
+
+    <!-- 右边弹出布局区 -->
+
+    <com.yousails.chrenai.view.ScrimInsetsFrameLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:background="@color/white"
+        android:clickable="true"
+        android:fitsSystemWindows="true">
+
+            <include layout="@layout/filter_layout" />
+
+    </com.yousails.chrenai.view.ScrimInsetsFrameLayout>
+</android.support.v4.widget.DrawerLayout>

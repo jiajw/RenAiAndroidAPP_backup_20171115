@@ -1,0 +1,18 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.youth.banner.Banner
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:indicator_height="5dp"
+        app:indicator_margin="5dp"
+        app:indicator_width="5dp" />
+    <!--app:indicator_drawable_selected="@mipmap/dot_sel"
+        app:indicator_drawable_unselected="@mipmap/dot"
+       -->
+
+</LinearLayout>

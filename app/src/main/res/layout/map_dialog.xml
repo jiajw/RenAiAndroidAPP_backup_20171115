@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="选择地图开始进行导航"
+        android:textSize="13sp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/line" />
+
+    <TextView
+        android:id="@+id/baidu_tview"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="百度地图"
+        android:textColor="@color/main_blue_color"
+        android:textSize="15sp"/>
+
+    <LinearLayout
+        android:id="@+id/divider_line_amap"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:orientation="horizontal"
+        android:background="@color/line" />
+
+    <TextView
+        android:id="@+id/amap_tview"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="高德地图"
+        android:textColor="@color/main_blue_color"
+        android:textSize="15sp"/>
+
+
+    <LinearLayout
+        android:id="@+id/divider_line_google"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:orientation="horizontal"
+        android:background="@color/line" />
+
+    <TextView
+        android:id="@+id/google_tview"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="谷歌地图"
+        android:textColor="@color/main_blue_color"
+        android:textSize="15sp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/line" />
+
+    <TextView
+        android:id="@+id/cancel_tview"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="取消"
+        android:textSize="13sp"/>
+
+
+</LinearLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/publish_title_height"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/iv_left_icon"
+        android:layout_width="@dimen/publish_title_height"
+        android:layout_height="@dimen/publish_title_height"
+        android:background="@drawable/selector_normal_white_gray_bg"
+        android:padding="15dp"
+        android:src="@mipmap/common_left_arrow" />
+
+    <TextView
+        android:id="@+id/tv_title_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="报名设置"
+        android:textColor="#FF333333"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_right_text"
+        android:layout_width="@dimen/publish_title_height"
+        android:layout_height="@dimen/publish_title_height"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/selector_normal_white_gray_bg"
+        android:gravity="center"
+        android:text="完成"
+        android:textColor="#FF269FF3"
+        android:textSize="15sp" />
+
+</RelativeLayout>

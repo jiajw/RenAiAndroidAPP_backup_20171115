@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.dreamtobe.kpswitch.widget.KPSwitchRootLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f2f2f2"
+    android:orientation="vertical">
+
+    <com.yousails.chrenai.publish.widget.PublishTitleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <View style="@style/publishDividerStyle" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp">
+
+                    <ImageView
+                        android:id="@+id/iv_active_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/publish_add_picture_bg" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_add_picture"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@mipmap/publish_add_picture_icon" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="添加封面照片"
+                            android:textColor="@android:color/white"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_change_picture"
+                        android:layout_width="213dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:background="@mipmap/publish_add_picture_change"
+                        android:gravity="center"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="60dp"
+                            android:text="更换封面图片"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+                <com.yousails.chrenai.publish.widget.PublishItemView
+                    android:id="@+id/active_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:item_input_hint="@string/publish_active_name_hint"
+                    app:item_name="@string/publish_active_name"
+                    app:item_type="input" />
+
+                <View style="@style/publishDividerStyle" />
+
+                <com.yousails.chrenai.publish.widget.PublishItemView
+                    android:id="@+id/active_org"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:item_name="@string/publish_active_org"
+                    app:item_type="select" />
+
+                <View style="@style/publishDividerStyle" />
+
+                <View
+                    style="@style/publishDividerStyle"
+                    android:layout_marginTop="10dp" />
+
+                <com.yousails.chrenai.publish.widget.PublishItemView
+                    android:id="@+id/active_begin_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:item_name="@string/publish_active_begin_time"
+                    app:item_type="choice" />
+
+                <View style="@style/publishDividerStyle" />
+
+                <com.yousails.chrenai.publish.widget.PublishItemView
+                    android:id="@+id/active_end_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:item_name="@string/publish_active_end_time"
+                    app:item_type="choice" />
+
+                <View style="@style/publishDividerStyle" />
+
+                <com.yousails.chrenai.publish.widget.PublishItemView
+                    android:id="@+id/active_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:item_name="@string/publish_active_location"
+                    app:item_type="choice" />
+
+                <View style="@style/publishDividerStyle" />
+
+                <com.yousails.chrenai.publish.widget.PublishItemView
+                    android:id="@+id/active_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:item_name="@string/publish_active_desc"
+                    app:item_type="select" />
+
+                <View style="@style/publishDividerStyle" />
+
+                <com.yousails.chrenai.publish.widget.PublishItemView
+                    android:id="@+id/active_member_limit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:item_input_hint="@string/publish_active_member_limit_hint"
+                    app:item_name="@string/publish_active_member_limit"
+                    app:item_type="input" />
+
+                <View style="@style/publishDividerStyle" />
+
+                <View
+                    style="@style/publishDividerStyle"
+                    android:layout_marginTop="10dp" />
+
+                <com.yousails.chrenai.publish.widget.PublishItemView
+                    android:id="@+id/active_is_charge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:item_name="@string/publish_active_is_charge"
+                    app:item_type="charge" />
+
+                <View style="@style/publishDividerStyle" />
+
+                <com.yousails.chrenai.publish.widget.PublishItemView
+                    android:id="@+id/active_apply_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:item_name="@string/publish_active_apply_setting"
+                    app:item_type="choice" />
+
+                <View style="@style/publishDividerStyle" />
+
+                <com.yousails.chrenai.publish.widget.PublishItemView
+                    android:id="@+id/active_sign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:item_name="@string/publish_active_sign"
+                    app:item_type="sign" />
+            </LinearLayout>
+
+            <cn.dreamtobe.kpswitch.widget.KPSwitchPanelLinearLayout
+                android:id="@+id/panel_root"
+                android:layout_width="match_parent"
+                android:layout_height="275dp"
+                android:orientation="vertical"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</cn.dreamtobe.kpswitch.widget.KPSwitchRootLinearLayout>
+
+
+

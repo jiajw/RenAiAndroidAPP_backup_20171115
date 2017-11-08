@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_gray_color"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/title_layout"
+        layout="@layout/title" />
+
+
+    <RelativeLayout
+        android:id="@+id/textarea_relayout"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+       >
+
+        <TextView
+            android:id="@+id/tv_textarea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/ic_textarea"
+            android:drawablePadding="5dp"
+            android:visibility="gone"/>
+
+
+        <EditText
+            android:id="@+id/et_textarea"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingRight="20dp"
+            android:paddingTop="20dp"
+            android:layout_toRightOf="@+id/tv_textarea"
+            android:gravity="top"
+            android:background="@null"
+            android:paddingLeft="10dp"
+            android:textSize="15sp">
+            <requestFocus />
+        </EditText>
+
+        <TextView
+            android:id="@+id/textarea_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:text="30" />
+
+        <LinearLayout
+            android:id="@+id/divider_line_textarea"
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/line"
+            android:orientation="horizontal" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

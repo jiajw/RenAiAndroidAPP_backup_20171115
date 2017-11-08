@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f2f2f2"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <com.yousails.chrenai.publish.widget.SimpleTitleView
+        android:id="@+id/title_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <View style="@style/publishDividerStyle" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginRight="15dp">
+
+        <LinearLayout
+            android:id="@+id/ll_not_necessary"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_not_necessary"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@drawable/selector_single_choice"
+                android:clickable="false" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="非必填"
+                android:textColor="#333333"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_necessary"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/ll_not_necessary"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_necessary"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@drawable/selector_single_choice"
+                android:clickable="false" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="必选项"
+                android:textColor="@color/publish_picture_choice_text_color_blue"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <View style="@style/publishDividerStyle" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingRight="15dp">
+
+        <EditText
+            android:id="@+id/et_input_view"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="请输入内容"
+            android:paddingLeft="15dp"
+            android:textColor="#FF000000"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/iv_input_clear"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@mipmap/ic_delete_input_icon"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+    <View style="@style/publishDividerStyle" />
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#FF999999"
+        android:textSize="10sp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/ll_choice_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <View
+            style="@style/publishDividerStyle"
+            android:layout_marginTop="15dp" />
+
+        <cn.dreamtobe.kpswitch.widget.KPSwitchRootLinearLayout
+            android:id="@+id/chat_rootView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/item_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:descendantFocusability="beforeDescendants"
+                android:fastScrollEnabled="false"
+                android:overScrollMode="never"
+                android:scrollbars="none" />
+
+            <cn.dreamtobe.kpswitch.widget.KPSwitchPanelLinearLayout
+                android:id="@+id/panel_root"
+                android:layout_width="match_parent"
+                android:layout_height="275dp"
+                android:orientation="vertical"
+                android:visibility="visible" />
+
+
+        </cn.dreamtobe.kpswitch.widget.KPSwitchRootLinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

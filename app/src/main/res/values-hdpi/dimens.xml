@@ -1,0 +1,30 @@
+<resources>
+
+    <dimen name="login_frame_hight">37dip</dimen>
+    <dimen name="login_frame_margin">10dip</dimen>
+
+    <dimen name="btn_validate_width">55dip</dimen>
+    <dimen name="btn_validate_hight">24dip</dimen>
+
+    <dimen name="iv_validate_code_width">65dip</dimen>
+    <dimen name="iv_validate_code_hight">50dip</dimen>
+
+
+    <!-- 登录历史框高度 -->
+    <dimen name="history_user_hight">48dip</dimen>
+
+    <!--  发现模块 -->
+    <dimen name="find_main_big_text">14sp</dimen>
+    <dimen name="find_main_small_text">11sp</dimen>
+    <dimen name="find_main_marginLeft">13dp</dimen>
+
+    <!--  首页底部模块 -->
+    <dimen name="bottom_layout_margin">13dip</dimen>
+    <dimen name="bottom_layout_textSize">15sp</dimen>
+    <dimen name="bottom_layout_attach_textSize">10sp</dimen>
+
+    <!--  首页科目选择模块 -->
+    <dimen name="column_viewpager_height">310dp</dimen>
+    <dimen name="no_cause_height">300dp</dimen>
+    <dimen name="viewpager_height">480dp</dimen>
+</resources>

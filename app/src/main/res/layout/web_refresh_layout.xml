@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/base_web_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ProgressBar
+        android:id="@+id/base_web_progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_below="@id/base_web_title"
+        android:progressDrawable="@drawable/web_progress_bg"/>
+
+
+    <RelativeLayout
+        android:layout_below="@+id/base_web_progressBar"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:background="#636363">
+
+        <TextView
+            android:id="@+id/web_discription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="#636363"
+            android:gravity="center_horizontal"
+            android:padding="15dip"
+            android:text="网页由"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+
+        <com.yousails.chrenai.widget.x5.X5WebView
+            android:id="@+id/web_filechooser"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            />
+
+        <TextView
+            android:id="@+id/logView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:singleLine="false">
+        </TextView>
+
+        <RelativeLayout
+            android:id="@+id/refreshPool"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:clickable="false"
+            android:focusable="false"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/refreshText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:alpha="0"
+                android:clickable="false"
+                android:focusable="false"
+                android:gravity="center_horizontal"
+                android:text="下拉刷新页面"
+                android:textColor="#0099ff"
+                android:textSize="14dp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

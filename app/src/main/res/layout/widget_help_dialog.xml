@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="270dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_simple_dialog"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_close_button"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:src="@mipmap/public_help_dialog_close" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:text="签到审核设置说明"
+        android:textColor="#FF333333"
+        android:textSize="19sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="一次扫码"
+            android:textColor="#FF333333"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="7dp"
+            android:text="活动工时记录只需扫码一次；报名者只可被扫码签到一次；一次记录工时时间固定，工时时间发布者需自己设置。\n特殊情况：奉粥-单个奉粥活动单人每日可扫一次。"
+            android:textColor="#FF999999"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="二次扫码"
+            android:textColor="#FF333333"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="7dp"
+            android:text="单次扫码为签到状态，不记录工时；单次扫码的下一次扫码为离开状态；签到时间与下次扫码离开时间的区间时间为工时时间；活动可多次扫码。"
+            android:textColor="#FF999999"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="手动扫码"
+            android:textColor="#FF333333"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="7dp"
+            android:text="如活动期间无网络时，选择此模式，活动结束后，活动发布者手动录入报名者工时"
+            android:textColor="#FF999999"
+            android:textSize="13sp" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

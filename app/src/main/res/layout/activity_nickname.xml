@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_gray_color"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/title_layout"
+        layout="@layout/title" />
+
+
+    <RelativeLayout
+        android:id="@+id/textarea_relayout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+       >
+
+
+        <EditText
+            android:id="@+id/et_textarea"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingRight="20dp"
+            android:paddingTop="20dp"
+            android:layout_toRightOf="@+id/tv_textarea"
+            android:gravity="top"
+            android:background="@null"
+            android:paddingLeft="20dp"
+            android:textSize="15sp">
+            <requestFocus />
+        </EditText>
+
+        <TextView
+            android:id="@+id/textarea_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:text="20"/>
+
+        <LinearLayout
+            android:id="@+id/divider_line_textarea"
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/line"
+            android:orientation="horizontal"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_error_tips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/login_red_color"
+        android:textSize="12sp"
+        android:maxLines="2"
+        android:ellipsize="end" />
+
+
+</LinearLayout>

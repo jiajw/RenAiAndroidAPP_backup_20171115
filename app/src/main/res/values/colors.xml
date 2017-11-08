@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="main_blue_color">#269FF3</color>
+    <color name="main_gray_color">#F4F4F4</color>
+    <!-- <color name="main_yellow_color">#F38F26</color> -->
+    <color name="main_yellow_color">#F8B11D</color>
+
+    <color name="light_black_color">#212121</color>
+    <color name="light_gray_color">#E2E2E2</color>
+    <color name="text_gray_color">#C8C8C8</color>
+    <color name="login_red_color">#F65431</color>
+
+    <color name="enroll_gray_color">#999999</color>
+    <color name="global_bg">#ffEBEBEB</color>
+
+
+
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!--<color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>-->
+
+    <color name="background">#F9F7F8</color>
+
+    <color name="text_gray1">#777777</color>
+    <color name="text_blue1">#1173CB</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <color name="line">#DDDDDD</color>
+    <color name="divider_line">#CCCCCC</color>
+
+    <color name="login_divider_line">#EAEAEA</color>
+
+    <color name="green">#259B24</color>
+
+    <color name="publish_title_bg">#E6FFFFFF</color>
+    <color name="publish_title_tab_clicked_bg">#e0e0e0</color>
+
+    <color name="publish_picture_choice_text_color_blue">#FF0076FF</color>
+
+    <color name="publish_picture_choice_text_color_gray">#FF898989</color>
+
+    <color name="e0e0e0">#e0e0e0</color>
+
+    <color name="cc000000">#cc000000</color>
+
+    <color name="search_gray_color">#ECECEC</color>
+    <color name="gray_text_color">#B2B2B2</color>
+
+    <color name="keyword_text_color">#8D8D8D</color>
+
+    <color name="search_input_bg">#FFECECEC</color>
+    <color name="color_333333">#333333</color>
+    <color name="color_666666">#666666</color>
+    <color name="color_e6e6e6">#e6e6e6</color>
+    <color name="color_FFFFFF">#ffffff</color>
+    <color name="color_EBEBEB">#ebebeb</color>
+    <color name="color_00c0d1">#00c0d1</color>
+    <color name="color_3ca2d0">#3ca2d0</color>
+    <color name="color_9B9B9B">#9B9B9B</color>
+
+
+
+
+
+</resources>

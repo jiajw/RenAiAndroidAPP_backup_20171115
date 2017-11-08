@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="@dimen/publish_title_height"
+        android:layout_height="@dimen/publish_title_height"
+        android:background="@drawable/selector_publish_title_click_bg"
+        android:padding="15dp"
+        android:src="@mipmap/common_left_arrow" />
+
+    <TextView
+        android:id="@+id/publish_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:maxLines="1"
+        android:text="活动发布"
+        android:textColor="#ff333333"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_publish"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/publish_title_height"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/selector_publish_title_click_bg"
+        android:gravity="center"
+        android:text="发布"
+        android:textColor="#ff3f3f3f"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_preview"
+        android:layout_width="@dimen/publish_title_height"
+        android:layout_height="@dimen/publish_title_height"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/tv_publish"
+        android:background="@drawable/selector_publish_title_click_bg"
+        android:gravity="center"
+        android:text="预览"
+        android:textColor="#FF30A1F0"
+        android:textSize="14sp" />
+
+</merge>
