@@ -108,7 +108,7 @@
 
     <!--divide_View分割线统一样式-->
     <style name="divide_view_style">
-        <item name="android:background">@color/color_e6e6e6</item>
+        <item name="android:background">@color/color_a6a6a6</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1px</item>
     </style>

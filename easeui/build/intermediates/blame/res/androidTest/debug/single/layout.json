@@ -1,0 +1,254 @@
+[
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_alert_dialog.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_alert_dialog.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_widget_emojicon.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_widget_emojicon.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_search_bar_with_padding.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_search_bar_with_padding.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_widget_emojicon_tab_bar.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_widget_emojicon_tab_bar.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_received_location.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_received_location.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_chat_message_list.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_chat_message_list.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_widget_switch_button.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_widget_switch_button.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_media_action.xml",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\c932b1afec010a7357569412a061d47c\\res\\layout\\notification_media_action.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\6c0afcfda85f2c90e8b53a94a8ced7fc\\res\\layout\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_widget_chat_input_menu.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_widget_chat_input_menu.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_big_media_custom.xml",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\c932b1afec010a7357569412a061d47c\\res\\layout\\notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_received_video_call.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_received_video_call.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_received_voice.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_received_voice.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_media_cancel_action.xml",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\c932b1afec010a7357569412a061d47c\\res\\layout\\notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_received_video.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_received_video.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_lines_media.xml",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\c932b1afec010a7357569412a061d47c\\res\\layout\\notification_template_lines_media.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_emojicon.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_emojicon.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_layout_chat_primary_menu.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_layout_chat_primary_menu.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_big_media.xml",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\c932b1afec010a7357569412a061d47c\\res\\layout\\notification_template_big_media.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_showvideo_activity.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_showvideo_activity.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_part_time.xml",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\6c0afcfda85f2c90e8b53a94a8ced7fc\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_part_chronometer.xml",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\6c0afcfda85f2c90e8b53a94a8ced7fc\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_commom_back_btn.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_commom_back_btn.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_contact.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_contact.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_received_voice_call.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_received_voice_call.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_chat_history.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_chat_history.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_sent_bigexpression.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_sent_bigexpression.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_received_file.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_received_file.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_sent_voice.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_sent_voice.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_received_message.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_received_message.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_sent_message.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_sent_message.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_activity_baidumap.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_activity_baidumap.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_chat_menu_item.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_chat_menu_item.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_sent_file.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_sent_file.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_layout_emojicon_menu.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_layout_emojicon_menu.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_activity_show_big_image.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_activity_show_big_image.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_big_media_narrow.xml",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\c932b1afec010a7357569412a061d47c\\res\\layout\\notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_widget_chat_primary_menu.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_widget_chat_primary_menu.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_expression_gridview.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_expression_gridview.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_sent_video.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_sent_video.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_big_expression.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_big_expression.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_scroll_tab_item.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_scroll_tab_item.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_search_bar.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_search_bar.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_widget_contact_list.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_widget_contact_list.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_fragment_chat.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_fragment_chat.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_expression.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_expression.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_received_picture.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_received_picture.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_sent_video_call.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_sent_video_call.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_media_custom.xml",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\c932b1afec010a7357569412a061d47c\\res\\layout\\notification_template_media_custom.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\6c0afcfda85f2c90e8b53a94a8ced7fc\\res\\layout\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_received_bigexpression.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_received_bigexpression.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_widget_voice_recorder.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_widget_voice_recorder.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_conversation_item.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_conversation_item.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_activity_show_file.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_activity_show_file.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_action.xml",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\6c0afcfda85f2c90e8b53a94a8ced7fc\\res\\layout\\notification_action.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_sent_voice_call.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_sent_voice_call.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_sent_location.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_sent_location.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_fragment_conversation_list.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_fragment_conversation_list.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_sent_picture.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_sent_picture.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_fragment_contact_list.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_fragment_contact_list.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_media.xml",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\c932b1afec010a7357569412a061d47c\\res\\layout\\notification_template_media.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_widget_title_bar.xml",
+        "source": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_widget_title_bar.xml"
+    },
+    {
+        "merged": "F:\\android_resource\\RenAiAndroidAPP_backup_20171115\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_big_media_narrow_custom.xml",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\c932b1afec010a7357569412a061d47c\\res\\layout\\notification_template_big_media_narrow_custom.xml"
+    }
+]

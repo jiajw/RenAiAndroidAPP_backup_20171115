@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="common_publish_picture_choice_text_color_blue">#FF0076FF</color>
+
+    <color name="common_publish_picture_choice_text_color_gray">#FF898989</color>
+    <color name="common_e0e0e0">#e0e0e0</color>
+
+    <color name="common_publish_title_bg">#E6FFFFFF</color>
+    <color name="common_publish_title_tab_clicked_bg">#e0e0e0</color>
+</resources>

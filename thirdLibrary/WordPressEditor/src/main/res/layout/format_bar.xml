@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/format_bar_height"
+    android:layout_alignParentBottom="true"
+    android:layout_gravity="bottom"
+    android:background="@color/format_bar_background"
+    android:orientation="horizontal"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    android:weightSum="5">
+
+
+    <ImageView
+        android:id="@+id/bold_img"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:src="@drawable/text_bold"
+        android:tag="bold" />
+
+    <ImageView
+        android:id="@+id/underline_img"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:src="@drawable/text_underline"
+        android:tag="underline" />
+
+    <ImageView
+        android:id="@+id/color_img"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:src="@drawable/text_color"
+        android:tag="color" />
+
+    <ImageView
+        android:id="@+id/size_img"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:src="@drawable/text_size"
+        android:tag="size" />
+
+    <ImageView
+        android:id="@+id/image_img"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:src="@drawable/img"
+        android:tag="image" />
+
+</LinearLayout>

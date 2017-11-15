@@ -1,0 +1,8 @@
+include ':app', ':easeui'
+include ':thirdLibrary:commonlibrary'
+include ':thirdLibrary:WordPressEditor'
+include ':thirdLibrary:fragmentlibrary'
+include ':thirdLibrary:okhttputils'
+include ':thirdLibrary:pickerview'
+include ':thirdLibrary:aFileChooser'
+include ':thirdLibrary:CropImage'

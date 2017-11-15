@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../editor.css">
+    <link rel="stylesheet" href="../editor-android.css">
+</head>
+<body>
+
+<div contenteditable="true">
+
+    <div>
+    <span class="edit-container" contenteditable="false">
+        <span class="delete-overlay" contenteditable="false"></span>
+
+        <span class="edit-overlay" contenteditable="false">
+            <span class="edit-icon"></span>
+            <span class="edit-content">Edit</span>
+        </span>
+        <img src="./image/cowboy-cat.jpg" alt="Cowboy Cat">
+    </span>
+    </div>
+</div>
+
+
+<script>
+    window.onload = function () {
+        var oul = document.getElementById("ul1");
+        var obtn = document.getElementById("btn1");
+        var otxt = document.getElementById("txt1");
+
+        /************************添加节点**********************************/
+        obtn.onclick = function () {
+            var oli = document.createElement('li');
+            oli.innerHTML = otxt.value + '　&nbsp;&nbsp;<a class="ac" href="javascript:;">删除</a>';
+            ali = oul.getElementsByTagName("li");
+
+            //1:追加元素
+            //oul.appendChild(oli);
+
+            //2:插入元素到前面
+            //oul.insertBefore(oli,ali[0]); 若不存在元素ali[0]在IE中会报错　所以需要兼容
+            if (ali.length > 0) {
+                oul.insertBefore(oli, ali[0]);
+            }
+            else {
+                oul.appendChild(oli);
+            }
+        }
+
+
+        /************************绑定事件**********************************/
+        oul.onclick = function (e) {
+            e = e || window.event;
+            var t = e.target || e.srcElement;  //t:目标对象
+            var tagName = t.tagName;　//tagName标签名称
+            if (tagName == 'A') {
+                this.removeChild(t.parentNode); //删除元素 this指oul
+            }
+        }
+
+    }
+
+
+</script>
+
+</body>
+</html>

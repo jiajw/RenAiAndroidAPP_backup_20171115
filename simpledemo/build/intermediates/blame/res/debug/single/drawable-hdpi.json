@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "D:\\AndroidStudioProjects\\chrenai_and\\Chrenai\\simpledemo\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\em_contact_list_selected.png",
+        "source": "D:\\AndroidStudioProjects\\chrenai_and\\Chrenai\\simpledemo\\src\\main\\res\\drawable-hdpi\\em_contact_list_selected.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\chrenai_and\\Chrenai\\simpledemo\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_launcher.png",
+        "source": "D:\\AndroidStudioProjects\\chrenai_and\\Chrenai\\simpledemo\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\chrenai_and\\Chrenai\\simpledemo\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\em_settings_normal.png",
+        "source": "D:\\AndroidStudioProjects\\chrenai_and\\Chrenai\\simpledemo\\src\\main\\res\\drawable-hdpi\\em_settings_normal.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\chrenai_and\\Chrenai\\simpledemo\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\em_conversation_normal.png",
+        "source": "D:\\AndroidStudioProjects\\chrenai_and\\Chrenai\\simpledemo\\src\\main\\res\\drawable-hdpi\\em_conversation_normal.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\chrenai_and\\Chrenai\\simpledemo\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\em_settings_selected.png",
+        "source": "D:\\AndroidStudioProjects\\chrenai_and\\Chrenai\\simpledemo\\src\\main\\res\\drawable-hdpi\\em_settings_selected.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\chrenai_and\\Chrenai\\simpledemo\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\em_conversation_selected.png",
+        "source": "D:\\AndroidStudioProjects\\chrenai_and\\Chrenai\\simpledemo\\src\\main\\res\\drawable-hdpi\\em_conversation_selected.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\chrenai_and\\Chrenai\\simpledemo\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\em_unread_count_bg.9.png",
+        "source": "D:\\AndroidStudioProjects\\chrenai_and\\Chrenai\\simpledemo\\src\\main\\res\\drawable-hdpi\\em_unread_count_bg.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\chrenai_and\\Chrenai\\simpledemo\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\em_contact_list_normal.png",
+        "source": "D:\\AndroidStudioProjects\\chrenai_and\\Chrenai\\simpledemo\\src\\main\\res\\drawable-hdpi\\em_contact_list_normal.png"
+    }
+]

@@ -1,0 +1,197 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion '26.0.2'
+
+    defaultConfig {
+        multiDexEnabled true
+        applicationId "com.yousails.chrenai"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 3
+        versionName "2.2.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        flavorDimensions "release"
+
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+         }
+    productFlavors {
+//        /*Main {}*/
+//        "1" {dimension "release"}
+//        "2" {dimension "release"}
+//        "3" {dimension "release"}
+//        "4" {dimension "release"}
+//        "5" {dimension "release"}
+//        "6" {dimension "release"}
+//        "7" {dimension "release"}
+//        "8" {dimension "release"}
+//        "9" {dimension "release"}
+//        "10" {dimension "release"}
+//        "11" {dimension "release"}
+//        "12" {dimension "release"}
+//        "13" {dimension "release"}
+//        "14" {dimension "release"}
+//        "15" {dimension "release"}
+//        "16" {dimension "release"}
+//        "17" {dimension "release"}
+//        "18" {dimension "release"}
+//        "19" {dimension "release"}
+//        "20" {dimension "release"}
+//        "21" {dimension "release"}
+//        "22" {dimension "release"}
+//        "23" {dimension "release"}
+//        "24" {dimension "release"}
+//        "25" {dimension "release"}
+        "26" {dimension "release"}
+//        "27" {dimension "release"}
+//        "28" {dimension "release"}
+//        "29" {dimension "release"}
+//        "30" {dimension "release"}
+//        "31" {dimension "release"}
+//        "32" {dimension "release"}
+//        "33" {dimension "release"}
+//        "34" {dimension "release"}
+//        "35" {dimension "release"}
+//        "36" {dimension "release"}
+//        "37" {dimension "release"}
+//        "38" {dimension "release"}
+//        "39" {dimension "release"}
+//        "40" {dimension "release"}
+//        "41" {dimension "release"}
+//        "42" {dimension "release"}
+//        "43" {dimension "release"}
+//        "44" {dimension "release"}
+//        "45" {dimension "release"}
+//        "46" {dimension "release"}
+//        "47" {dimension "release"}
+//        "48" {dimension "release"}
+//        "49" {dimension "release"}
+//        "50" {dimension "release"}
+//        "51" {dimension "release"}
+//        "52" {dimension "release"}
+//        "53" {dimension "release"}
+//        "54" {dimension "release"}
+//        "55" {dimension "release"}
+//        "56" {dimension "release"}
+//        "57" {dimension "release"}
+//        "58" {dimension "release"}
+//        "59" {dimension "release"}
+//        "60" {dimension "release"}
+
+    }
+
+
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+
+    signingConfigs {
+        debug {
+            keyAlias 'chrenai'
+            keyPassword '123456'
+            storeFile file('../app/keystore/mykey.jks')
+            storePassword '123456'
+        }
+        release {
+            keyAlias 'chrenai'
+            keyPassword '123456'
+            storeFile file('../app/keystore/mykey.jks')
+            storePassword '123456'
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            signingConfig signingConfigs.release
+        }
+
+    }
+    productFlavors.all { flavor ->
+        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {output ->
+            if (variant.buildType.name == 'release') {
+                def releaseApkName = getProductName() + '-' + variant.productFlavors[0].name + '-release' + "-${defaultConfig.versionName}_${releaseTime()}" + '.apk'
+                outputFileName  = releaseApkName
+            }
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    dexOptions {
+
+        javaMaxHeapSize "4g"
+
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+}
+//获取生成的产品名
+def getProductName() {
+    return "renai"
+}
+
+def releaseTime() {
+    return new Date().format("yyyyMMddHHmmss")
+}
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.1', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    compile project(':thirdLibrary:fragmentlibrary')
+    compile project(':thirdLibrary:WordPressEditor')
+    compile project(':thirdLibrary:okhttputils')
+    compile project(':thirdLibrary:pickerview')
+    compile project(':thirdLibrary:aFileChooser')
+    compile project(':thirdLibrary:CropImage')
+    compile project(':easeui')
+    compile files('libs/tbs_sdk_thirdapp_v2.5.0.1031_36880_sharewithdownload_obfs_20161107_154437.jar')
+    //dialog
+    //软键盘
+    compile files('libs/zxing.jar')
+    compile 'com.android.support:appcompat-v7:27.0.0'
+    compile 'com.android.support:design:27.0.0'
+    compile 'com.android.support:cardview-v7:27.0.0'
+    compile 'com.github.bumptech.glide:glide:3.8.0'
+    compile 'com.orhanobut:logger:1.15'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.squareup.okhttp3:okhttp-urlconnection:3.2.0'
+    compile 'com.youth.banner:banner:1.4.9'
+    compile 'com.android.support:recyclerview-v7:27.0.0'
+    compile 'io.github.lizhangqu:coreprogress:1.0.2'
+    compile 'com.orhanobut:dialogplus:1.11@aar'
+    compile 'cn.dreamtobe.kpswitch:library:1.6.0'
+    compile 'com.yqritc:recyclerview-flexibledivider:1.4.0'
+    compile 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.2.5'
+    compile 'com.github.johnpersano:supertoasts:2.0'
+    compile 'com.android.support:multidex:1.0.2'
+    compile 'com.umeng.analytics:analytics:6.1.2'
+    compile 'pub.devrel:easypermissions:0.4.3'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+}
+
+
+

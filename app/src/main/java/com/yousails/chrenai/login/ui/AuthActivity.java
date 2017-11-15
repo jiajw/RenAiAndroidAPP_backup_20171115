@@ -434,13 +434,9 @@ public class AuthActivity extends BaseActivity {
         if (StringUtil.isNotNull(phoneNum)) {
             if (!PhoneUtil.checkPhoneNumber(phoneNum)) {
                 CustomToast.createToast(mContext, "手机号输入错误，请检查");
-                return false;
             } else {
                 inforMap.put("phone", phoneNum);
             }
-        } else {
-            CustomToast.createToast(mContext, "请填写您的手机号");
-            return false;
         }
 
         String work = workView.getText().toString().trim();

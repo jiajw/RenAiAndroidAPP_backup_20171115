@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="common_publish_title_height">47dp</dimen>
+
+    <dimen name="common_publish_normal_item_height">47dp</dimen>
+
+    <dimen name="common_publish_sign_top_margin">15dp</dimen>
+
+    <dimen name="common_publish_active_item_left_margin">25dp</dimen>
+</resources>

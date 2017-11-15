@@ -64,8 +64,7 @@ public class SplashActivity extends BaseActivity {
     private LinearLayout splashLayout;
 
     private ProgressBar progressBar;
-    private TextView tvLeft;
-    private TextView tvRight;
+
     private VersionBean versionBean;
 
     /* 下载保存路径 */
@@ -399,8 +398,6 @@ public class SplashActivity extends BaseActivity {
     private void showDownloadingDialog() {
         View contentView = LayoutInflater.from(SplashActivity.this).inflate(R.layout.update_progress_layout, null);
         progressBar = (ProgressBar) contentView.findViewById(R.id.download_progress);
-        tvLeft = (TextView) contentView.findViewById(R.id.tv_progress_tag1);
-        tvRight = (TextView) contentView.findViewById(R.id.tv_progress_tag2);
         customDialog = CustomDialogHelper.showUpdateProgressDialog(SplashActivity.this, contentView);
         if (!customDialog.isShowing()) {
             customDialog.show();
@@ -464,8 +461,7 @@ public class SplashActivity extends BaseActivity {
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
             progressBar.setProgress(values[0]);
-            tvLeft.setText(values[0] + 1 + "%");
-            tvRight.setText(values[0] + 1 + "/100");
+
         }
 
         @Override
