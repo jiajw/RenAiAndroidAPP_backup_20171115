@@ -1,5 +1,7 @@
 package com.yousails.chrenai.login.bean;
 
+import android.text.TextUtils;
+
 import java.io.Serializable;
 
 /**
@@ -30,6 +32,9 @@ public class UserBean implements Serializable {
     private String religion_name;
     private ActivityStatsBean activity_stats;
     private NotificationsBean notifications;
+
+    //性别
+    private String gender;
 
 
     public String getId() {
@@ -74,6 +79,33 @@ public class UserBean implements Serializable {
 
     public String getSex() {
         return sex;
+    }
+
+    public String getGender() {
+
+        if (!TextUtils.isEmpty(getSex())) {
+
+            if ("female".equals(getSex())) {
+                this.gender = "女";
+            } else if ("male".equals(getSex())) {
+                this.gender = "男";
+            }
+        }
+        return gender;
+    }
+
+    public void setGender(String gender) {
+
+        if (!TextUtils.isEmpty(getSex())) {
+
+            if ("female".equals(getSex())) {
+                this.gender = "女";
+            } else if ("male".equals(getSex())) {
+                this.gender = "男";
+            }
+            this.gender = gender;
+        }
+
     }
 
     public void setSex(String sex) {
@@ -206,5 +238,33 @@ public class UserBean implements Serializable {
 
     public void setNotifications(NotificationsBean notifications) {
         this.notifications = notifications;
+    }
+
+    @Override
+    public String toString() {
+        return "UserBean{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", realname='" + realname + '\'' +
+                ", phone='" + phone + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", sex='" + sex + '\'' +
+                ", is_certificated=" + is_certificated +
+                ", is_vip=" + is_vip +
+                ", is_banned=" + is_banned +
+                ", working_hours=" + working_hours +
+                ", notification_count=" + notification_count +
+                ", registration_id=" + registration_id +
+                ", wechat_openid='" + wechat_openid + '\'' +
+                ", wechat_unionid='" + wechat_unionid + '\'' +
+                ", created_at='" + created_at + '\'' +
+                ", updated_at='" + updated_at + '\'' +
+                ", im_username='" + im_username + '\'' +
+                ", level='" + level + '\'' +
+                ", religion_id='" + religion_id + '\'' +
+                ", religion_name='" + religion_name + '\'' +
+                ", activity_stats=" + activity_stats +
+                ", notifications=" + notifications +
+                '}';
     }
 }

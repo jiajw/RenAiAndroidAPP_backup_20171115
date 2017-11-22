@@ -466,6 +466,7 @@
         <activity
             android:name=".home.ui.ProtocolActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".person.ui.BindPhoneActivity"/>
 
         <provider
             android:name="android.support.v4.content.FileProvider"

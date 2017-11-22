@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +21,7 @@ import com.yousails.chrenai.app.ui.BaseActivity;
 import com.yousails.chrenai.common.LogUtil;
 import com.yousails.chrenai.config.ApiConstants;
 import com.yousails.chrenai.config.AppPreference;
-import com.yousails.chrenai.framework.util.ToastUtil;
+import com.yousails.chrenai.framework.util.CommonUtil;
 import com.yousails.chrenai.home.ui.ProtocolActivity;
 import com.yousails.chrenai.login.bean.SelectBean;
 import com.yousails.chrenai.utils.CustomToast;
@@ -33,6 +34,7 @@ import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.json.JSONObject;
 
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -132,7 +134,7 @@ public class AuthActivity extends BaseActivity {
         phone_layout = (RelativeLayout) findViewById(R.id.phone_layout);
         phoneView = (EditText) findViewById(R.id.phone_edit_text);
 
-        protocolLayout=(RelativeLayout)findViewById(R.id.protocol_layout);
+        protocolLayout = (RelativeLayout) findViewById(R.id.protocol_layout);
         checkBox = (CheckBox) findViewById(R.id.id_checkbox);
 
 
@@ -211,8 +213,8 @@ public class AuthActivity extends BaseActivity {
                 break;
 
             case R.id.protocol_layout:
-                Intent pIntent=new Intent(AuthActivity.this,ProtocolActivity.class);
-                pIntent.putExtra("from","service");
+                Intent pIntent = new Intent(AuthActivity.this, ProtocolActivity.class);
+                pIntent.putExtra("from", "service");
                 startActivity(pIntent);
         }
     }
@@ -245,7 +247,7 @@ public class AuthActivity extends BaseActivity {
                         break;
                     case 3:
                         CustomToast.createToast(mContext, "您的实名认证已完成");
-                        Intent intent=new Intent(mContext,CertCompleteActivity.class);
+                        Intent intent = new Intent(mContext, CertCompleteActivity.class);
                         startActivity(intent);
                         finish();
                         break;
@@ -393,11 +395,22 @@ public class AuthActivity extends BaseActivity {
         if (StringUtil.isEmpty(identNum)) {
             CustomToast.createToast(mContext, "请输入身份证号");
             return false;
-        } else if (!isLegalId(identNum)) {
-            tipsView.setText(R.string.text_ident_error);
-            tipsView.setVisibility(View.VISIBLE);
-            identView.setTextColor(getResources().getColor(R.color.login_red_color));
-            return false;
+        } else {
+            //验证身份证
+            String errorMsg;
+            try {
+                errorMsg = CommonUtil.IDCardValidate(identNum);
+            } catch (ParseException e) {
+                e.printStackTrace();
+                errorMsg = "无效身份证";
+            }
+            if (!TextUtils.isEmpty(errorMsg)) {
+                tipsView.setText(errorMsg);
+                tipsView.setVisibility(View.VISIBLE);
+                identView.setTextColor(getResources().getColor(R.color.login_red_color));
+                return false;
+            }
+
         }
 
         inforMap.put("identity_card_no", identNum);

@@ -11,6 +11,7 @@ import android.os.Message;
 import android.os.PersistableBundle;
 import android.support.v4.content.ContextCompat;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -33,12 +34,14 @@ import com.yousails.chrenai.app.ui.MainActivity;
 import com.yousails.chrenai.config.ApiConstants;
 import com.yousails.chrenai.config.AppPreference;
 import com.yousails.chrenai.db.UserDBService;
+import com.yousails.chrenai.framework.util.GsonUtils;
 import com.yousails.chrenai.login.bean.LoginResultBean;
 import com.yousails.chrenai.login.bean.MetaBean;
 import com.yousails.chrenai.login.bean.UserBean;
 import com.yousails.chrenai.login.listener.MaxLengthWatcher;
 import com.yousails.chrenai.login.listener.TextChangeListener;
 import com.yousails.chrenai.utils.CustomToast;
+import com.yousails.chrenai.utils.LogUtils;
 import com.yousails.chrenai.utils.NetUtil;
 import com.yousails.chrenai.utils.NoDoubleClickUtils;
 import com.yousails.chrenai.utils.PhoneUtil;
@@ -553,82 +556,71 @@ public class LoginActivity extends BaseActivity {
 
                     @Override
                     public void onResponse(String response, int id) {
-//                        if(wxLoginDialog!=null){
-//                            wxLoginDialog.dismiss();
-//                        }
 
-                        if (StringUtil.isNotNull(response)) {
-                            try {
-                                LoginResultBean loginResultBean = new Gson().fromJson(response, LoginResultBean.class);
+                        if (!TextUtils.isEmpty(response)) {
+                            LoginResultBean loginResultBean = GsonUtils.toBean(response, LoginResultBean.class);
 
-                                if (loginResultBean != null) {
+                            if (loginResultBean != null) {
+                                LogUtils.e("==loginResultBean==" + loginResultBean);
+                                UserBean userBean = loginResultBean.getUser();
 
-                                    UserBean userBean = loginResultBean.getUser();
+                                application.setUserBean(userBean);
 
-                                    //保存到sharepreference
-                                    AppPreference.getInstance(mContext).writeToken("Bearer " + loginResultBean.getToken());
-                                    AppPreference.getInstance(mContext).writeExpired(loginResultBean.getExpired_at());
-                                    AppPreference.getInstance(mContext).writeRefreshExpired(loginResultBean.getRefresh_expired_at());
+                                //保存到sharepreference
+                                AppPreference.getInstance(mContext).writeToken("Bearer " + loginResultBean.getToken());
+                                AppPreference.getInstance(mContext).writeExpired(loginResultBean.getExpired_at());
+                                AppPreference.getInstance(mContext).writeRefreshExpired(loginResultBean.getRefresh_expired_at());
 
-                                    AppPreference.getInstance(mContext).writeUserId(userBean.getId());
-                                    AppPreference.getInstance(mContext).writeLastUserId(userBean.getId());
-                                    AppPreference.getInstance(mContext).writeUserName(userBean.getName());
-                                    AppPreference.getInstance(mContext).writeRealName(userBean.getRealname());
-                                    AppPreference.getInstance(mContext).writePhone(userBean.getId(), userBean.getPhone());
-                                    AppPreference.getInstance(mContext).writeAvatar(userBean.getAvatar());
-                                    AppPreference.getInstance(mContext).writeGender(userBean.getSex());
-                                    AppPreference.getInstance(mContext).writeReligion(userBean.getReligion_name());
-                                    AppPreference.getInstance(mContext).writeLevel(userBean.getLevel());
-                                    AppPreference.getInstance(mContext).writeEMName(userBean.getIm_username());
+                                AppPreference.getInstance(mContext).writeUserId(userBean.getId());
+                                AppPreference.getInstance(mContext).writeLastUserId(userBean.getId());
+                                AppPreference.getInstance(mContext).writeUserName(userBean.getName());
+                                AppPreference.getInstance(mContext).writeRealName(userBean.getRealname());
+                                AppPreference.getInstance(mContext).writePhone(userBean.getId(), userBean.getPhone());
+                                AppPreference.getInstance(mContext).writeAvatar(userBean.getAvatar());
+                                AppPreference.getInstance(mContext).writeGender(userBean.getSex());
+                                AppPreference.getInstance(mContext).writeReligion(userBean.getReligion_name());
+                                AppPreference.getInstance(mContext).writeLevel(userBean.getLevel());
+                                AppPreference.getInstance(mContext).writeEMName(userBean.getIm_username());
+                                String uid = AppPreference.getInstance(mContext).readUerId();
+                                AppPreference.getInstance(mContext).writePhone(uid, userBean.getPhone());
 
-                                    if (userBean.is_certificated()) {
-                                        AppPreference.getInstance(mContext).writeCertification("1");
-                                    }
+                                if (userBean.is_certificated()) {
+                                    AppPreference.getInstance(mContext).writeCertification("1");
+                                }
 
-                                    if (userBean.is_vip()) {
-                                        AppPreference.getInstance(mContext).writeIsVip("1");
-                                    }
+                                if (userBean.is_vip()) {
+                                    AppPreference.getInstance(mContext).writeIsVip("1");
+                                }
 
-                                    int hours = userBean.getWorking_hours();
-                                    if (0 != hours) {
-                                        AppPreference.getInstance(mContext).writeWorkHours(hours + "");
-                                    }
-
-
-                                    AppPreference.getInstance(mContext).setLogin(true);
-                                    AppPreference.getInstance(mContext).setLogout(false);
-
-                                    MetaBean metaBean = loginResultBean.getMeta();
-                                    if (metaBean != null) {
-                                        AppPreference.getInstance(mContext).writeEMPwd(metaBean.getIm_password());
-
-                                    }
-
-                                    //保存到数据库
-                                    UserDBService userDBService = new UserDBService(mContext);
-                                    if (userDBService.hasUser(userBean.getId())) {
-                                        userDBService.updateUser(userBean);
-                                    } else {
-                                        userDBService.insertUser(userBean);
-                                    }
+                                int hours = userBean.getWorking_hours();
+                                if (0 != hours) {
+                                    AppPreference.getInstance(mContext).writeWorkHours(hours + "");
+                                }
 
 
+                                AppPreference.getInstance(mContext).setLogin(true);
+                                AppPreference.getInstance(mContext).setLogout(false);
 
-                                    /*//更新最后登录时间
-
-                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                    startActivity(intent);
-
-                                    //关掉登录页面及注册页面
-                                    EventBus.getDefault().post("finish");*/
-
-                                    login_Em();
+                                MetaBean metaBean = loginResultBean.getMeta();
+                                if (metaBean != null) {
+                                    AppPreference.getInstance(mContext).writeEMPwd(metaBean.getIm_password());
 
                                 }
-                            } catch (Exception e) {
-                                e.printStackTrace();
+
+                                //保存到数据库
+                                UserDBService userDBService = new UserDBService(mContext);
+                                if (userDBService.hasUser(userBean.getId())) {
+                                    userDBService.updateUser(userBean);
+                                } else {
+                                    userDBService.insertUser(userBean);
+                                }
+
+                                login_Em();
+
                             }
+
                         }
+
                     }
                 });
 
@@ -660,53 +652,9 @@ public class LoginActivity extends BaseActivity {
         return remain + "秒";
     }
 
-    /**
-     * 获取用户信息
-     */
-    private void getUserInfor() {
-        /*if(!NetUtil.detectAvailable(mContext)){
-            Toast.makeText(mContext,"请链接网络！",Toast.LENGTH_SHORT).show();
-        }
-        Map<String, String> params=new HashMap<>();
-        params.put("Authorization",mToken);
-
-        OkHttpCommUtils.doGET(ApiConstants.GET_USERS_API,null, params, new StringCallback() {
-            @Override
-            public void onError(Call call, Exception e, int id) {
-                System.out.println("----->"+e.toString());
-            }
-
-            @Override
-            public void onResponse(String response, int id) {
-                System.out.println("----->" + response);
-                UserBean userBean = new Gson().fromJson(response, UserBean.class);
-                if(userBean!=null){
-                    //保存到sharepreference
-                    AppPreference.getInstance(mContext).writeUserId(userBean.getId());
-                    AppPreference.getInstance(mContext).writeLastUserId(userBean.getId());
-                    AppPreference.getInstance(mContext).writeUserName(userBean.getName());
-                    AppPreference.getInstance(mContext).writePhone(userBean.getId(),userBean.getPhone()) ;
-                    AppPreference.getInstance(mContext).setLogin(true);
-                    AppPreference.getInstance(mContext).setLogout(false);
-                    //保存到数据库
-                    UserDBService userDBService=new UserDBService(mContext);
-                    if(userDBService.hasUser(userBean.getId())){
-                        userDBService.updateUser(userBean);
-                    }else{
-                        userDBService.insertUser(userBean);
-                    }
-                    //更新最后登录时间
-
-                    Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-                    startActivity(intent);
-                    LoginActivity.this.finish();
-                }
-            }
-        });*/
-    }
 
     /**
-     * 第三方登录获取用户资料
+     * 第三方微信登录获取用户资料
      */
     private void getPlatformInfo() {
         if (!NetUtil.detectAvailable(mContext)) {
@@ -747,6 +695,7 @@ public class LoginActivity extends BaseActivity {
                                 if (loginResultBean != null) {
 
                                     UserBean userBean = loginResultBean.getUser();
+                                    application.setUserBean(userBean);
 
                                     //保存到sharepreference
                                     AppPreference.getInstance(mContext).writeToken("Bearer " + loginResultBean.getToken());
@@ -763,6 +712,9 @@ public class LoginActivity extends BaseActivity {
                                     AppPreference.getInstance(mContext).writeReligion(userBean.getReligion_name());
                                     AppPreference.getInstance(mContext).writeLevel(userBean.getLevel());
                                     AppPreference.getInstance(mContext).writeEMName(userBean.getIm_username());
+                                    String uid = AppPreference.getInstance(mContext).readUerId();
+                                    AppPreference.getInstance(mContext).writePhone(uid, userBean.getPhone());
+
 
                                     if (userBean.is_certificated()) {
                                         AppPreference.getInstance(mContext).writeCertification("1");
@@ -795,15 +747,6 @@ public class LoginActivity extends BaseActivity {
                                         userDBService.insertUser(userBean);
                                     }
 
-                                    /*//更新最后登录时间
-
-                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                    startActivity(intent);
-
-                                    //关掉登录页面及注册页面
-                                    EventBus.getDefault().post("finish");*/
-
-
                                     login_Em();
 
                                 }
@@ -823,26 +766,6 @@ public class LoginActivity extends BaseActivity {
 
 
     //----------------------------------------------------
-
-    /**
-     * 清除注册用户
-     */
-    private void clearUser() {
-        OkHttpUtils.post()
-                .url(ApiConstants.CLEAN_USERS_API)
-                .build()
-                .execute(new StringCallback() {
-                    @Override
-                    public void onError(Call call, String response, Exception e, int id) {
-                        System.out.println("----->" + response);
-                    }
-
-                    @Override
-                    public void onResponse(String response, int id) {
-                        System.out.println("----->" + response);
-                    }
-                });
-    }
 
 
     UMAuthListener authListener = new UMAuthListener() {
@@ -975,9 +898,6 @@ public class LoginActivity extends BaseActivity {
             return;
         }
 
-        // reset current user name before login
-//        DemoHelper.getInstance().setCurrentUserName(currentUsername);
-
         final long start = System.currentTimeMillis();
         // call login method
         Log.d(TAG, "EMClient.getInstance().login");
@@ -992,51 +912,6 @@ public class LoginActivity extends BaseActivity {
 
                 mHandler.sendEmptyMessage(6);
 
-                // update current user's display name for APNs
-//                boolean updatenick = EMClient.getInstance().pushManager().updatePushNickname(
-//                        DemoApplication.currentUserNick.trim());
-//                if (!updatenick) {
-//                    Log.e("LoginActivity", "update current user nick fail");
-//                }
-
-//                if (!LoginActivity.this.isFinishing() && pd.isShowing()) {
-//                    pd.dismiss();
-//                }
-                // get user's info (this should be get from App's server or 3rd party service)
-//                DemoHelper.getInstance().getUserProfileManager().asyncGetCurrentUserInfo();
-
-               /* Intent intent = new Intent(LoginActivity.this,
-                        MainActivity.class);
-                startActivity(intent);
-
-                finish();*/
-
-
-                /*if(loginIntent!=null){
-                    from=loginIntent.getStringExtra("from");
-                    if("detail".equals(from)){
-                        finish();
-                    }else if("main".equals(from)){
-                        //切换到我的页面
-//                        EventBus.getDefault().post("mypage");
-                        finish();
-                    }else if("publish".equals(from)){
-                        //切换到我的页面
-                        EventBus.getDefault().post("publish");
-                        finish();
-                    }else{
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(intent);
-                        //关掉登录页面及注册页面
-                        EventBus.getDefault().post("finish");
-                    }
-                }else{
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    //关掉登录页面及注册页面
-                    EventBus.getDefault().post("finish");
-                }*/
-
 
             }
 
@@ -1048,21 +923,8 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onError(final int code, final String message) {
                 Log.d(TAG, "login: onError: " + code);
-//                if (!progressShow) {
-//                    return;
-//                }
                 mHandler.sendEmptyMessage(6);
-                /*runOnUiThread(new Runnable() {
-                    public void run() {
-//                        pd.dismiss();
-                        if(wxLoginDialog!=null){
-                            wxLoginDialog.dismiss();
-                        }
-                        Toast.makeText(mContext, "登录成功", Toast.LENGTH_SHORT).show();
-//                        Toast.makeText(getApplicationContext(), getString(R.string.Login_failed) + message,
-//                                Toast.LENGTH_SHORT).show();
-                    }
-                });*/
+
             }
         });
     }

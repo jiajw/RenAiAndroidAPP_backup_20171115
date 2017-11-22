@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -25,6 +26,7 @@ import com.yousails.chrenai.common.LogUtil;
 import com.yousails.chrenai.common.ToastUtils;
 import com.yousails.chrenai.config.ApiConstants;
 import com.yousails.chrenai.config.AppPreference;
+import com.yousails.chrenai.framework.util.GlideUtil;
 import com.yousails.chrenai.login.listener.OnPhotoListener;
 import com.yousails.chrenai.login.receiver.InternalStorageContentProvider;
 import com.yousails.chrenai.login.ui.AuthActivity;
@@ -89,6 +91,7 @@ public class PersonProfileActivity extends BaseActivity {
     private String upImageName = "camera_image.jpg";
     public static String TEMP_PHOTO_FILE_NAME = "temp_photo.jpg";
     private String userId;
+    private String phone;
     private String certification;
 
 
@@ -184,11 +187,21 @@ public class PersonProfileActivity extends BaseActivity {
                 startActivityForResult(rIntent, 1);
                 break;
             case R.id.certification_layout:
-                String certif = certifView.getText().toString().trim();
-                if ("未认证".equals(certif)) {
-                    Intent authIntent = new Intent(mContext, AuthActivity.class);
-                    startActivity(authIntent);
+
+                phone = AppPreference.getInstance(mContext).readPhone(userId);
+
+                if (TextUtils.isEmpty(phone)) {
+                    Intent bindIntent = new Intent(mContext, BindPhoneActivity.class);
+                    startActivity(bindIntent);
+                } else {
+                    String certif = certifView.getText().toString().trim();
+                    if ("未认证".equals(certif)) {
+                        Intent authIntent = new Intent(mContext, AuthActivity.class);
+                        startActivity(authIntent);
+                    }
                 }
+
+
                 break;
         }
     }
@@ -231,6 +244,7 @@ public class PersonProfileActivity extends BaseActivity {
         String gender = AppPreference.getInstance(mContext).readGender();
         String headUrl = AppPreference.getInstance(mContext).readAvatar();
         String religion = AppPreference.getInstance(mContext).readReligion();
+        phone = AppPreference.getInstance(mContext).readPhone(userId);
 
         nameView.setText(userName);
 
@@ -371,6 +385,7 @@ public class PersonProfileActivity extends BaseActivity {
         startActivityForResult(intent, PhotoDialog.REQUEST_CODE_CROP_IMAGE);
     }
 
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -442,7 +457,7 @@ public class PersonProfileActivity extends BaseActivity {
     /**
      * 更改头像
      */
-    private void updateAvatar(String avatarId) {
+    private void updateAvatar(final String avatarId) {
         if (!NetUtil.detectAvailable(mContext)) {
             Toast.makeText(mContext, "请链接网络！", Toast.LENGTH_SHORT).show();
         }
@@ -501,6 +516,8 @@ public class PersonProfileActivity extends BaseActivity {
 
             @Override
             public void onResponse(String response, int id) {
+
+                LogUtil.e("==response===" + response);
                 if (StringUtil.isNotNull(response)) {
                     try {
                         JSONObject jsonObject = new JSONObject(response);

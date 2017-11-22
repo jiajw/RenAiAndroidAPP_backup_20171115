@@ -52,4 +52,15 @@ public class LoginResultBean implements Serializable {
     public void setMeta(MetaBean meta) {
         this.meta = meta;
     }
+
+    @Override
+    public String toString() {
+        return "LoginResultBean{" +
+                "token='" + token + '\'' +
+                ", expired_at='" + expired_at + '\'' +
+                ", refresh_expired_at='" + refresh_expired_at + '\'' +
+                ", user=" + user +
+                ", meta=" + meta +
+                '}';
+    }
 }

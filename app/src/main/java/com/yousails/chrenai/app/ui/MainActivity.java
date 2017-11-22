@@ -288,13 +288,7 @@ public class MainActivity extends BaseActivity {
                 startActivity(areaIntent);
                 break;
             case R.id.iv_local:
-                if (Build.VERSION.SDK_INT >= 23) {
-                    String[] perms = {Manifest.permission.ACCESS_COARSE_LOCATION,
-                            Manifest.permission.ACCESS_FINE_LOCATION};
-                    PermissionUtils.requestMultiPermissions(MainActivity.this, perms, mPermissionGrant);
-                } else {
-                    startActivity(new Intent(MainActivity.this, ActMapActivity.class));
-                }
+                startActivity(new Intent(MainActivity.this, ActMapActivity.class));
                 break;
             case R.id.search_content_layout:
                 Intent intent = new Intent(MainActivity.this, SearchActivity.class);

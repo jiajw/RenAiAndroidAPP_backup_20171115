@@ -1,9 +1,12 @@
 package com.yousails.chrenai.home.ui;
 
+import android.Manifest;
 import android.content.Intent;
 import android.graphics.Point;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
 import android.text.Html;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -32,6 +35,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.yousails.chrenai.R;
 import com.yousails.chrenai.app.ui.BaseActivity;
+import com.yousails.chrenai.app.ui.MainActivity;
 import com.yousails.chrenai.baidumap.clusterutil.clustering.Cluster;
 import com.yousails.chrenai.baidumap.clusterutil.clustering.ClusterItem;
 import com.yousails.chrenai.baidumap.clusterutil.clustering.ClusterManager;
@@ -39,7 +43,9 @@ import com.yousails.chrenai.common.LogUtil;
 import com.yousails.chrenai.config.ApiConstants;
 import com.yousails.chrenai.config.AppPreference;
 import com.yousails.chrenai.home.bean.ActivitiesBean;
+import com.yousails.chrenai.utils.LogUtils;
 import com.yousails.chrenai.utils.NetUtil;
+import com.yousails.chrenai.utils.PermissionUtils;
 import com.yousails.chrenai.utils.StringUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -116,6 +122,12 @@ public class ActMapActivity extends BaseActivity implements BaiduMap.OnMapLoaded
 
     @Override
     protected void init() {
+
+        if (Build.VERSION.SDK_INT >= 23) {
+            String[] perms = {Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.ACCESS_FINE_LOCATION};
+            PermissionUtils.requestMultiPermissions(ActMapActivity.this, perms, mPermissionGrant);
+        }
 
     }
 
@@ -550,4 +562,22 @@ public class ActMapActivity extends BaseActivity implements BaiduMap.OnMapLoaded
     public void onMapLoaded() {
 
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        PermissionUtils.requestPermissionsResult(this, requestCode, permissions, grantResults, mPermissionGrant);
+    }
+
+    private PermissionUtils.PermissionGrant mPermissionGrant = new PermissionUtils.PermissionGrant() {
+        @Override
+        public void onPermissionGranted(int requestCode) {
+            switch (requestCode) {
+                case PermissionUtils.CODE_MULTI_PERMISSION:
+
+                    break;
+
+            }
+        }
+    };
 }

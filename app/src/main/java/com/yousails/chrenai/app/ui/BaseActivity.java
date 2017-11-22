@@ -8,6 +8,7 @@ import android.view.View;
 import com.umeng.analytics.MobclickAgent;
 import com.yousails.chrenai.config.ModelApplication;
 import com.yousails.chrenai.im.DemoHelper;
+import com.yousails.chrenai.login.bean.UserBean;
 
 
 /**
@@ -30,6 +31,8 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
      * handler
      */
     protected Handler mHandler;
+    protected ModelApplication application;
+    protected UserBean userBean;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +40,8 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
         setContentView();
         TAG = this.getClass().getName();
         mContext = this;
-        ModelApplication application = (ModelApplication) this.getApplication();
+        application = ModelApplication.getInstance();
         application.getActivityManager().pushActivity(this);
-
         init();
         findViews();
         initViews();

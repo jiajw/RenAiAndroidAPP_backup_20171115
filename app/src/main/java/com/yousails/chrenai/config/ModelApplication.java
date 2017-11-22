@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.support.multidex.MultiDex;
+import android.text.TextUtils;
 
 import com.fragment.base.AppProxy;
 import com.baidu.mapapi.SDKInitializer;
@@ -17,8 +18,10 @@ import com.umeng.socialize.UMShareAPI;
 import com.yousails.chrenai.app.service.LocationService;
 import com.yousails.chrenai.app.ui.ActivityManager;
 import com.yousails.chrenai.db.DBHelper;
+import com.yousails.chrenai.framework.util.SharePrefUtil;
 import com.yousails.chrenai.home.bean.CityBean;
 import com.yousails.chrenai.im.DemoHelper;
+import com.yousails.chrenai.login.bean.UserBean;
 import com.yousails.chrenai.utils.UiUtil;
 import com.yousails.chrenai.utils.https.TrustAllCerts;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -76,6 +79,9 @@ public class ModelApplication extends Application {
         return sInstance;
     }
 
+
+    private UserBean userBean;
+
     @Override
     public void onCreate() {
         //因为引用的包过多，实现多包问题
@@ -111,6 +117,19 @@ public class ModelApplication extends Application {
         SDKInitializer.initialize(getApplicationContext());
     }
 
+
+    public UserBean getUserBean() {
+        UserBean userBean = (UserBean) SharePrefUtil.getObj(this, SharePrefUtil.KEY.USER_INFO);
+        return userBean;
+    }
+
+    public void setUserBean(UserBean userBean) {
+        this.userBean = userBean;
+        if (userBean != null) {
+            SharePrefUtil.saveObj(getApplicationContext(),
+                    SharePrefUtil.KEY.USER_INFO, userBean);
+        }
+    }
 
     /**
      * 初始化偏好单例
