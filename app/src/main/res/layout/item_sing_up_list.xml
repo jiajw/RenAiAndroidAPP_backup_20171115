@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/pdp_14"
+    android:paddingTop="@dimen/pdp_14">
+
+
+    <com.yousails.chrenai.view.CircleImageView
+        android:id="@+id/iv_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_avatar"/>
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/pdp_10"
+        android:ellipsize="end"
+        android:maxLength="10"
+        android:singleLine="true"
+        android:text="贤二贤二贤二贤二"
+        android:textColor="@color/light_black_color"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/iv_state"
+        android:layout_width="46dp"
+        android:layout_height="18dp"
+        android:layout_marginLeft="@dimen/pdp_10"
+        android:background="@drawable/ident_btn_bg"
+        android:gravity="center"
+        android:text="认证"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:visibility="visible"
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/icon_address_arrows"/>
+</LinearLayout>

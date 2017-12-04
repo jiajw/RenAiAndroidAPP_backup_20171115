@@ -7,7 +7,6 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -25,9 +24,8 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.yousails.chrenai.R.id.iv_close;
-
 /**
+ * 我的发布
  * Created by liuwen on 2017/8/10.
  */
 
@@ -41,9 +39,9 @@ public class MyActsActivity extends BaseActivity {
 
     private TextView title;
 
-    private String[] titles=new String[]{"新发布","已完成"};
+    private String[] titles = new String[]{"新发布", "已完成"};
     private List<Fragment> fragments = new ArrayList<>();
-    private String from ="mine";
+    private String from = "mine";
     private String user = "";
 
     private boolean isFinish = false;
@@ -66,34 +64,34 @@ public class MyActsActivity extends BaseActivity {
     protected void init() {
         // 注册对象
         EventBus.getDefault().register(this);
-        isFinish = getIntent().getBooleanExtra("isFinish",false);
+        isFinish = getIntent().getBooleanExtra("isFinish", false);
         from = getIntent().getStringExtra("from");
         user = getIntent().getStringExtra("user");
     }
 
     @Override
     protected void findViews() {
-        backLayout=(LinearLayout)findViewById(R.id.title_back);
+        backLayout = (LinearLayout) findViewById(R.id.title_back);
         backLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        searchLayout=(RelativeLayout)findViewById(R.id.search_content_layout);
+        searchLayout = (RelativeLayout) findViewById(R.id.search_content_layout);
         searchLayout.setVisibility(View.GONE);
 
-        title = (TextView) findViewById(R.id.title) ;
-        title.setText(from.equals("mine")?"我的发布":"TA的发布");
+        title = (TextView) findViewById(R.id.title);
+        title.setText(from.equals("mine") ? "我的发布" : "TA的发布");
 
         myViewpager = (ViewPager) findViewById(R.id.my_viewpager);
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
 
-        MyActFragment firstPage = new MyActFragment(false,1,from,user);
-        MyActFragment secondPage = new MyActFragment(true,2,from,user);
+        MyActFragment firstPage = new MyActFragment(false, 1, from, user);
+        MyActFragment secondPage = new MyActFragment(true, 2, from, user);
         fragments.add(firstPage);
         fragments.add(secondPage);
-        MyActPagerAdapter pagerAdapter = new MyActPagerAdapter(getSupportFragmentManager(),titles,fragments);
+        MyActPagerAdapter pagerAdapter = new MyActPagerAdapter(getSupportFragmentManager(), titles, fragments);
         myViewpager.setAdapter(pagerAdapter);
         tabLayout.setupWithViewPager(myViewpager);
 
@@ -119,13 +117,13 @@ public class MyActsActivity extends BaseActivity {
         tabLayout.post(new Runnable() {
             @Override
             public void run() {
-                TabUtils.setIndicator(tabLayout,60,60);
+                TabUtils.setIndicator(tabLayout, 60, 60);
             }
         });
 
-        if(isFinish){
+        if (isFinish) {
             myViewpager.setCurrentItem(1);
-        }else{
+        } else {
             myViewpager.setCurrentItem(0);
         }
     }
@@ -157,8 +155,8 @@ public class MyActsActivity extends BaseActivity {
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
     public void refreshPublish(String message) {
         if ("refresh_publish".equals(message)) {
-            if(myViewpager!=null){
-                ((MyActFragment)fragments.get(myViewpager.getCurrentItem())).initData();
+            if (myViewpager != null) {
+                ((MyActFragment) fragments.get(myViewpager.getCurrentItem())).initData();
             }
         }
     }

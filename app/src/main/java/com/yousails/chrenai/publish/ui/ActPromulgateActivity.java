@@ -23,6 +23,7 @@ import pub.devrel.easypermissions.EasyPermissions;
 import static android.R.attr.data;
 
 /**
+ * 发布活动-活动地点
  * Created by sym on 17/7/23.
  */
 

@@ -1,0 +1,21 @@
+<android.support.v4.widget.SwipeRefreshLayout
+    android:id="@+id/refresh_Layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_eeeeee"
+    >
+
+    <ListView
+        android:id="@+id/lv_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_FFFFFF"
+        android:divider="@color/color_EOEOEO"
+        android:dividerHeight="1px"
+        android:paddingLeft="@dimen/pdp_16"
+        android:scrollbars="none"/>
+
+
+</android.support.v4.widget.SwipeRefreshLayout>
+

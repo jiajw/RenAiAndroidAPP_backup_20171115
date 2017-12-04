@@ -32,6 +32,7 @@ import java.util.List;
 import static com.yousails.chrenai.R.id.tabLayout;
 
 /**
+ * 活动管理报名信息页
  * Created by Administrator on 2017/8/23.
  */
 

@@ -1,6 +1,5 @@
 package com.yousails.chrenai.publish.ui;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Rect;
@@ -25,7 +24,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.baidu.location.Address;
 import com.baidu.location.BDLocation;
@@ -43,10 +41,8 @@ import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.MyLocationData;
-import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.core.PoiInfo;
-import com.baidu.mapapi.search.geocode.GeoCodeOption;
 import com.baidu.mapapi.search.geocode.GeoCodeResult;
 import com.baidu.mapapi.search.geocode.GeoCoder;
 import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
@@ -76,11 +72,8 @@ import org.greenrobot.eventbus.Subscribe;
 
 import java.util.List;
 
-import pub.devrel.easypermissions.AfterPermissionGranted;
-import pub.devrel.easypermissions.AppSettingsDialog;
-import pub.devrel.easypermissions.EasyPermissions;
-
 /**
+ * 地图定位
  * Author:WangKunHui
  * Date: 2017/7/21 17:16
  * Desc:
@@ -149,6 +142,9 @@ public class AddressChoiceActivity extends BaseActivity {
 
     private TextView tvLocation;
 
+
+   private PoiSearch mPoiSearch;
+
     // 初始化全局 bitmap 信息，不用时及时 recycle
     private BitmapDescriptor[] markIcons = {
             BitmapDescriptorFactory.fromResource(R.mipmap.icon_marka),
@@ -173,7 +169,6 @@ public class AddressChoiceActivity extends BaseActivity {
 
 
     }
-
 
 
     private void initMap() {
@@ -235,7 +230,7 @@ public class AddressChoiceActivity extends BaseActivity {
         PoiInfo poiInfo = new PoiInfo();
         poiInfo.address = bdLocation.getAddrStr();
         poiInfo.name = bdLocation.getSemaAptag();
-        poiInfo.location = new LatLng(bdLocation.getLatitude(),bdLocation.getLongitude());
+        poiInfo.location = new LatLng(bdLocation.getLatitude(), bdLocation.getLongitude());
         markLocation(poiInfo);
         //mHandler.sendEmptyMessage(1);
         reverseGeoCodeResult(baiduMap.getMapStatus());
@@ -253,13 +248,11 @@ public class AddressChoiceActivity extends BaseActivity {
         baiduMap.setMapStatus(mMapStatusUpdate);
 
 
-
     }
 
 
     @Override
     protected void findViews() {
-
 
 
         tvLocation = (TextView) findViewById(R.id.tv_location);
@@ -349,7 +342,6 @@ public class AddressChoiceActivity extends BaseActivity {
     }
 
 
-
     @Override
     protected void setListeners() {
 
@@ -403,6 +395,7 @@ public class AddressChoiceActivity extends BaseActivity {
                         public void onSuccess(PoiResult poiResult, int currentPageIndex) {
                             LogUtil.i(TAG, "");
                             inputContainerRoot.setVisibility(View.VISIBLE);
+                            LogUtil.e("===poiResult=="+poiResult);
                             setInputSearchData(poiResult);
                         }
 
@@ -505,11 +498,11 @@ public class AddressChoiceActivity extends BaseActivity {
                 List<PoiInfo> poiList = reverseGeoCodeResult.getPoiList();
 
                 showPoiViewData(poiList);
-                Log.e("ongetgeocoderresult",reverseGeoCodeResult.getSematicDescription()+"><"+reverseGeoCodeResult.getAddressDetail().street+"><"+reverseGeoCodeResult.getAddressDetail().district);
+                Log.e("ongetgeocoderresult", reverseGeoCodeResult.getSematicDescription() + "><" + reverseGeoCodeResult.getAddressDetail().street + "><" + reverseGeoCodeResult.getAddressDetail().district);
                 PoiInfo poiInfo = new PoiInfo();
                 poiInfo.address = reverseGeoCodeResult.getAddress();
                 poiInfo.name = reverseGeoCodeResult.getSematicDescription();
-                poiInfo.location = new LatLng(reverseGeoCodeResult.getLocation().latitude,reverseGeoCodeResult.getLocation().longitude);
+                poiInfo.location = new LatLng(reverseGeoCodeResult.getLocation().latitude, reverseGeoCodeResult.getLocation().longitude);
                 markLocation(poiInfo);
                 geoCoder.destroy();
             }
@@ -570,7 +563,7 @@ public class AddressChoiceActivity extends BaseActivity {
                         poiAdapter.setData(defaultPoiList, mAddress);
                         break;
                     case 2:
-                        PoiInfo info = (PoiInfo)msg.getData().getParcelable("location");
+                        PoiInfo info = (PoiInfo) msg.getData().getParcelable("location");
                         tvLocation.setText(info.name);
                         setCenterLocation(info.location.latitude, info.location.longitude);
                         break;
@@ -610,6 +603,8 @@ public class AddressChoiceActivity extends BaseActivity {
         // activity 销毁时同时销毁地图控件
         MapView.setMapCustomEnable(false);
         mMapView.onDestroy();
+        //释放POI检索实例
+        mPoiSearch.destroy();
 
         EventBusManager.getInstance().unregister(this);
     }
@@ -708,6 +703,7 @@ public class AddressChoiceActivity extends BaseActivity {
     }
 
     /**
+     * 根据关键字检索适用于某个城市搜索某个名称相关的POI
      * @param type 是否为input的数据 true input  false click
      */
     private void poiSearchByKey(String key, final int pageIndex, final boolean type,
@@ -722,15 +718,44 @@ public class AddressChoiceActivity extends BaseActivity {
             return;
         }
 
-        PoiSearch poiSearch = PoiSearch.newInstance();
 
+        //1.创建POI检索实例
+        mPoiSearch = PoiSearch.newInstance();
+        //2.创建POI检索监听者
+        OnGetPoiSearchResultListener poiListener=new OnGetPoiSearchResultListener() {
+            @Override
+            public void onGetPoiResult(PoiResult poiResult) {
+                //获取POI检索结果
+
+            }
+
+            @Override
+            public void onGetPoiDetailResult(PoiDetailResult poiDetailResult) {
+                //获取place详情页检索结果
+
+            }
+
+            @Override
+            public void onGetPoiIndoorResult(PoiIndoorResult poiIndoorResult) {
+
+            }
+        };
+
+        //3.设置POI检索监听者
+        mPoiSearch.setOnGetPoiSearchResultListener(poiListener);
+
+        //4.发起检索请求
         PoiCitySearchOption citySearchOption = new PoiCitySearchOption();
+        //城市
+        citySearchOption.city(address.city);
+        //检索关键字
         citySearchOption.keyword(key);
         citySearchOption.pageNum(pageIndex);
-        citySearchOption.city(address.city);
         citySearchOption.pageCapacity(defaultPageSize);
+        mPoiSearch.searchInCity(citySearchOption);
 
-        poiSearch.setOnGetPoiSearchResultListener(new OnGetPoiSearchResultListener() {
+
+        mPoiSearch.setOnGetPoiSearchResultListener(new OnGetPoiSearchResultListener() {
             @Override
             public void onGetPoiResult(PoiResult poiResult) {
                 if (poiResult != null && poiResult.getAllPoi() != null
@@ -757,7 +782,7 @@ public class AddressChoiceActivity extends BaseActivity {
                 LogUtil.i(TAG, "onGetPoiIndoorResult  :  " + GsonUtils.toJson(poiIndoorResult));
             }
         });
-        poiSearch.searchInCity(citySearchOption);
+        mPoiSearch.searchInCity(citySearchOption);
     }
 
     private void poiSearchByLocation(MapStatus status) {

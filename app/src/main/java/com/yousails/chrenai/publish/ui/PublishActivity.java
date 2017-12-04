@@ -790,6 +790,10 @@ public class PublishActivity extends BaseActivity {
                     addressDescription = data.getStringExtra("addressDescription");
 
                     isGlobal = data.getBooleanExtra("isGlobal", false);
+                    activeItem.setIs_global(isGlobal);
+
+                    LogUtil.e("===isGlobal=="+isGlobal);
+
                     if (!TextUtils.isEmpty(locationName)) {
                         activeLocation.setItemDesc(locationName + (TextUtils.isEmpty(addressDescription) ? "" : addressDescription));
                     }

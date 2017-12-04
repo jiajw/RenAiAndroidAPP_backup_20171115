@@ -1,19 +1,14 @@
 package com.yousails.chrenai.config;
 
 /**
+ * 接口配置文件
  * Created by Administrator on 2017/6/15.
  */
 
 public class ApiConstants {
 
+    //是否是测试环境
     public static final boolean IS_TEST = false;
-
-
-    //正式服务器
-    // https://app.chrenai.com
-    //  测试服务器信息：
-    //"http://chrenai.yousails-project.com
-//    public static final String BASE_URL = "http://chrenai.yousails-project.com";
 
     //测试环境地址
     public static final String TEST_URL = "http://chrenai.yousails-project.com";
@@ -21,6 +16,7 @@ public class ApiConstants {
     public static final String PRODUCT_URL = "https://app.chrenai.com";
 
     public static final String BASE_URL = IS_TEST ? TEST_URL : PRODUCT_URL;
+
 
     //  ------------------------------------登录---------------------------
     // 获取图片验证码

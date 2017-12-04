@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.yousails.chrenai.R;
+import com.yousails.chrenai.common.LogUtil;
 import com.yousails.chrenai.config.ApiConstants;
 import com.yousails.chrenai.config.AppPreference;
 import com.yousails.chrenai.home.bean.MetaBean;
@@ -48,6 +49,7 @@ import okhttp3.FormBody;
 import okhttp3.RequestBody;
 
 /**
+ * 活动管理报名信息-全部报名信息
  * Created by Administrator on 2017/8/23.
  */
 
@@ -271,6 +273,8 @@ public class RegisterInforFragment extends Fragment {
                 isLoading = false;
                 swipeRefreshLayout.setRefreshing(false);
                 if (StringUtil.isNotNull(response)) {
+
+                    LogUtil.e("==response=="+response);
                     try {
                         JSONObject jsonObject = new JSONObject(response);
                         JSONArray jsonArray = jsonObject.optJSONArray("data");

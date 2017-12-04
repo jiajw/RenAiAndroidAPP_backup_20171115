@@ -39,6 +39,7 @@ import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
 
 /**
+ * 活动管理
  * Created by Administrator on 2017/8/23.
  */
 

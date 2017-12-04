@@ -14,13 +14,9 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.yousails.chrenai.R;
 import com.yousails.chrenai.home.adapter.BannderHolder;
-import com.yousails.chrenai.home.adapter.ColumnAdapter;
 import com.yousails.chrenai.home.bean.ActivitiesBean;
 import com.yousails.chrenai.home.bean.EnrollBean;
-import com.yousails.chrenai.home.listener.OnItemClickListener;
-import com.yousails.chrenai.home.listener.VotedEvent;
 import com.yousails.chrenai.person.bean.AuthorityBean;
-import com.yousails.chrenai.person.bean.FeedbackBean;
 import com.yousails.chrenai.person.bean.UserPermsBean;
 import com.yousails.chrenai.person.ui.ActivityFeedbackActivity;
 import com.yousails.chrenai.person.ui.AttenStatisActivity;
@@ -83,7 +79,7 @@ public class MyActAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     }
 
 
-    public void  setFooterSwitch(int mSwitch) {
+    public void setFooterSwitch(int mSwitch) {
         this.mSwitch = mSwitch;
         this.notifyDataSetChanged();
     }
@@ -96,41 +92,18 @@ public class MyActAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     @Override
     public int getItemViewType(int position) {
-       /* if (mHeaderView == null) return TYPE_NORMAL;
-        if (position == 0) return TYPE_HEADER;
-        return TYPE_NORMAL;*/
-
-
-        /*if (mHeaderView == null) {
-            if (position + 1 == getItemCount()) {
-                return TYPE_FOOTER;
-            } else {
-                return TYPE_NORMAL;
-            }
-        } else {
-            if (position == 0) {
-                return TYPE_HEADER;
-            } else {
-                if (position + 1 == getItemCount()) {
-                    return TYPE_FOOTER;
-                } else {
-                    return TYPE_NORMAL;
-                }
-            }
-        }*/
-
 
         if (mHeaderView == null) {
             if (position + 1 == getItemCount() && mSwitch == 1) {
                 return TYPE_FOOTER;
             } else {
-                if(type==1){
+                if (type == 1) {
                     return TYPE_RELEASE_NEW;
-                }else if(type==2){
+                } else if (type == 2) {
                     return TYPE_RELEASE_END;
-                }else if(type==3){
+                } else if (type == 3) {
                     return TYPE_ENJOY_NEW;
-                }else if(type==4){
+                } else if (type == 4) {
                     return TYPE_ENJOY_END;
                 }
                 return TYPE_NORMAL;
@@ -142,13 +115,13 @@ public class MyActAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 if (position + 1 == getItemCount() && mSwitch == 1) {
                     return TYPE_FOOTER;
                 } else {
-                    if(type==1){
+                    if (type == 1) {
                         return TYPE_RELEASE_NEW;
-                    }else if(type==2){
+                    } else if (type == 2) {
                         return TYPE_RELEASE_END;
-                    }else if(type==3){
+                    } else if (type == 3) {
                         return TYPE_ENJOY_NEW;
-                    }else if(type==4){
+                    } else if (type == 4) {
                         return TYPE_ENJOY_END;
                     }
                     return TYPE_NORMAL;
@@ -162,13 +135,6 @@ public class MyActAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        /*if (mHeaderView != null && viewType == TYPE_HEADER) {
-            return new BannderHolder(mHeaderView);
-        } else {
-            View view = LayoutInflater.from(mContext).inflate(R.layout.column_item, parent, false);
-
-            return new CustomHolder(view);
-        }*/
 
         if (mHeaderView == null) {
             if (viewType == TYPE_NORMAL) {
@@ -177,13 +143,13 @@ public class MyActAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             } else if (viewType == TYPE_RELEASE_NEW) {
                 View view = LayoutInflater.from(mContext).inflate(R.layout.item_release_new, parent, false);
                 return new ReleaseNewHolder(view);
-            }else if (viewType == TYPE_RELEASE_END) {
+            } else if (viewType == TYPE_RELEASE_END) {
                 View view = LayoutInflater.from(mContext).inflate(R.layout.item_release_end, parent, false);
                 return new ReleaseEndHolder(view);
-            }else if (viewType == TYPE_ENJOY_NEW) {
+            } else if (viewType == TYPE_ENJOY_NEW) {
                 View view = LayoutInflater.from(mContext).inflate(R.layout.item_enjoy_new, parent, false);
                 return new EnjoyNewHolder(view);
-            }else if (viewType == TYPE_ENJOY_END) {
+            } else if (viewType == TYPE_ENJOY_END) {
                 View view = LayoutInflater.from(mContext).inflate(R.layout.item_enjoy_end, parent, false);
                 return new EnjoyEndHolder(view);
             } else {
@@ -200,16 +166,16 @@ public class MyActAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             } else if (viewType == TYPE_RELEASE_NEW) {
                 View view = LayoutInflater.from(mContext).inflate(R.layout.item_release_new, parent, false);
                 return new ReleaseNewHolder(view);
-            }else if (viewType == TYPE_RELEASE_END) {
+            } else if (viewType == TYPE_RELEASE_END) {
                 View view = LayoutInflater.from(mContext).inflate(R.layout.item_release_end, parent, false);
                 return new ReleaseEndHolder(view);
-            }else if (viewType == TYPE_ENJOY_NEW) {
+            } else if (viewType == TYPE_ENJOY_NEW) {
                 View view = LayoutInflater.from(mContext).inflate(R.layout.item_enjoy_new, parent, false);
                 return new EnjoyNewHolder(view);
-            }else if (viewType == TYPE_ENJOY_END) {
+            } else if (viewType == TYPE_ENJOY_END) {
                 View view = LayoutInflater.from(mContext).inflate(R.layout.item_enjoy_end, parent, false);
                 return new EnjoyEndHolder(view);
-            }else {
+            } else {
                 View footerView = LayoutInflater.from(mContext).inflate(R.layout.column_item_footer, parent, false);
                 return new FootViewHolder(footerView);
             }
@@ -224,7 +190,7 @@ public class MyActAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             ((BannderHolder) viewHolder).bindItem();
         } else if (getItemViewType(position) == TYPE_FOOTER) {
             ((FootViewHolder) viewHolder).footView.setText(R.string.loading);
-        }else if (getItemViewType(position) == TYPE_RELEASE_NEW) {
+        } else if (getItemViewType(position) == TYPE_RELEASE_NEW) {
             final int pos = getRealPosition(viewHolder);
             final ActivitiesBean activitiesBean = activitiesBeanList.get(pos);
             final String name = activitiesBean.getUser().getName();
@@ -237,7 +203,7 @@ public class MyActAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 ((ReleaseNewHolder) viewHolder).nameView.setText(name);
                 if (isCertificated) {
                     ((ReleaseNewHolder) viewHolder).identiView.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     ((ReleaseNewHolder) viewHolder).identiView.setVisibility(View.GONE);
                 }
 
@@ -294,24 +260,17 @@ public class MyActAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 });
 
 
-                if(from.equals("mine")) {
-                    /*((ReleaseNewHolder) viewHolder).btnEdit.setVisibility(View.VISIBLE);
-                    ((ReleaseNewHolder) viewHolder).btnSign.setVisibility(View.VISIBLE);
-                    ((ReleaseNewHolder) viewHolder).btnWeituo.setVisibility(View.VISIBLE);*/
+                if (from.equals("mine")) {
                     ((ReleaseNewHolder) viewHolder).rlAction.setVisibility(View.VISIBLE);
 
-                }else{
-                    /*((ReleaseNewHolder) viewHolder).btnEdit.setVisibility(View.GONE);
-                    ((ReleaseNewHolder) viewHolder).btnEdit.setVisibility(View.GONE);
-                    ((ReleaseNewHolder) viewHolder).btnEdit.setVisibility(View.GONE);*/
+                } else {
                     ((ReleaseNewHolder) viewHolder).rlAction.setVisibility(View.GONE);
 
                 }
             }
 
 
-        }
-        else if (getItemViewType(position) == TYPE_RELEASE_END) {
+        } else if (getItemViewType(position) == TYPE_RELEASE_END) {
             final int pos = getRealPosition(viewHolder);
             final ActivitiesBean activitiesBean = activitiesBeanList.get(pos);
             final String name = activitiesBean.getUser().getName();
@@ -320,16 +279,16 @@ public class MyActAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             String coverimage = activitiesBean.getCover_image();
             String starTime = activitiesBean.getStarted_at();
             if (viewHolder instanceof ReleaseEndHolder) {
-                if(activitiesBean.getUnread_feedback_count()>0){
+                if (activitiesBean.getUnread_feedback_count() > 0) {
                     ((ReleaseEndHolder) viewHolder).ivRed.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     ((ReleaseEndHolder) viewHolder).ivRed.setVisibility(View.GONE);
                 }
                 ((ReleaseEndHolder) viewHolder).nameTitle.setText(activitiesBean.getTitle());
                 ((ReleaseEndHolder) viewHolder).nameView.setText(name);
                 if (isCertificated) {
                     ((ReleaseEndHolder) viewHolder).identiView.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     ((ReleaseEndHolder) viewHolder).identiView.setVisibility(View.GONE);
                 }
 
@@ -371,9 +330,9 @@ public class MyActAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 ((ReleaseEndHolder) viewHolder).btnSign.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent=new Intent(mContext,AttenStatisActivity.class);
-                        intent.putExtra("id",activitiesBean.getId());
-                        intent.putExtra("sign_type",activitiesBean.getSign_type());
+                        Intent intent = new Intent(mContext, AttenStatisActivity.class);
+                        intent.putExtra("id", activitiesBean.getId());
+                        intent.putExtra("sign_type", activitiesBean.getSign_type());
                         mContext.startActivity(intent);
                     }
                 });
@@ -382,29 +341,22 @@ public class MyActAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 ((ReleaseEndHolder) viewHolder).btnWeituo.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent=new Intent(mContext,ActivityFeedbackActivity.class);
-                        intent.putExtra("id",activitiesBean.getId());
+                        Intent intent = new Intent(mContext, ActivityFeedbackActivity.class);
+                        intent.putExtra("id", activitiesBean.getId());
                         mContext.startActivity(intent);
                     }
                 });
 
-                if(from.equals("mine")) {
-                    /*((ReleaseEndHolder) viewHolder).btnEdit.setVisibility(View.GONE);
-                    ((ReleaseEndHolder) viewHolder).btnSign.setVisibility(View.VISIBLE);
-                    ((ReleaseEndHolder) viewHolder).btnWeituo.setVisibility(View.VISIBLE);*/
+                if (from.equals("mine")) {
 
                     ((ReleaseEndHolder) viewHolder).rlAction.setVisibility(View.VISIBLE);
 
-                }else{
-                    /*((ReleaseEndHolder) viewHolder).btnEdit.setVisibility(View.GONE);
-                    ((ReleaseEndHolder) viewHolder).btnEdit.setVisibility(View.GONE);
-                    ((ReleaseEndHolder) viewHolder).btnEdit.setVisibility(View.GONE);*/
+                } else {
                     ((ReleaseEndHolder) viewHolder).rlAction.setVisibility(View.GONE);
 
                 }
             }
-        }
-        else if (getItemViewType(position) == TYPE_ENJOY_NEW) {
+        } else if (getItemViewType(position) == TYPE_ENJOY_NEW) {
             final int pos = getRealPosition(viewHolder);
             final ActivitiesBean activitiesBean = activitiesBeanList.get(pos);
             final String name = activitiesBean.getUser().getName();
@@ -418,7 +370,7 @@ public class MyActAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 ((EnjoyNewHolder) viewHolder).nameView.setText(name);
                 if (isCertificated) {
                     ((EnjoyNewHolder) viewHolder).identiView.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     ((EnjoyNewHolder) viewHolder).identiView.setVisibility(View.GONE);
                 }
 
@@ -447,23 +399,23 @@ public class MyActAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 if (StringUtil.isNotNull(coverimage)) {
                     Glide.with(mContext).load(coverimage).into(((EnjoyNewHolder) viewHolder).picView);
                 }
-                UserPermsBean userPermsBean=activitiesBean.getUserPerms();
-                if(userPermsBean!=null){
-                    List<AuthorityBean> authorityBeanList= userPermsBean.getData();
-                    if(authorityBeanList!=null&&authorityBeanList.size()>0){
+                UserPermsBean userPermsBean = activitiesBean.getUserPerms();
+                if (userPermsBean != null) {
+                    List<AuthorityBean> authorityBeanList = userPermsBean.getData();
+                    if (authorityBeanList != null && authorityBeanList.size() > 0) {
                         ((EnjoyNewHolder) viewHolder).weituoLayout.setVisibility(View.VISIBLE);
-                    }else{
+                    } else {
                         ((EnjoyNewHolder) viewHolder).weituoLayout.setVisibility(View.GONE);
                     }
 
-                }else{
+                } else {
                     ((EnjoyNewHolder) viewHolder).weituoLayout.setVisibility(View.GONE);
                 }
 
                 ((EnjoyNewHolder) viewHolder).btn_weituo.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(mListener!=null){
+                        if (mListener != null) {
                             mListener.doMore(activitiesBean);
                         }
                     }
@@ -477,8 +429,7 @@ public class MyActAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                     }
                 });
             }
-        }
-        else if (getItemViewType(position) == TYPE_ENJOY_END) {
+        } else if (getItemViewType(position) == TYPE_ENJOY_END) {
             final int pos = getRealPosition(viewHolder);
             final ActivitiesBean activitiesBean = activitiesBeanList.get(pos);
             final String name = activitiesBean.getUser().getName();
@@ -487,16 +438,16 @@ public class MyActAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             String coverimage = activitiesBean.getCover_image();
             String starTime = activitiesBean.getStarted_at();
             if (viewHolder instanceof EnjoyEndHolder) {
-                if(activitiesBean.getUnread_feedback_count()>0){
+                if (activitiesBean.getUnread_feedback_count() > 0) {
                     ((EnjoyEndHolder) viewHolder).ivRed.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     ((EnjoyEndHolder) viewHolder).ivRed.setVisibility(View.GONE);
                 }
                 ((EnjoyEndHolder) viewHolder).nameTitle.setText(activitiesBean.getTitle());
                 ((EnjoyEndHolder) viewHolder).nameView.setText(name);
                 if (isCertificated) {
                     ((EnjoyEndHolder) viewHolder).identiView.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     ((EnjoyEndHolder) viewHolder).identiView.setVisibility(View.GONE);
                 }
 
@@ -526,21 +477,21 @@ public class MyActAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                     Glide.with(mContext).load(coverimage).into(((EnjoyEndHolder) viewHolder).picView);
                 }
 
-                UserPermsBean userPermsBean=activitiesBean.getUserPerms();
-                if(userPermsBean!=null){
-                    List<AuthorityBean> authorityBeanList= userPermsBean.getData();
-                    if(authorityBeanList!=null&&authorityBeanList.size()>0){
-                        EnrollBean userApplication=activitiesBean.getUserApplication();
-                        if(userApplication!=null){
+                UserPermsBean userPermsBean = activitiesBean.getUserPerms();
+                if (userPermsBean != null) {
+                    List<AuthorityBean> authorityBeanList = userPermsBean.getData();
+                    if (authorityBeanList != null && authorityBeanList.size() > 0) {
+                        EnrollBean userApplication = activitiesBean.getUserApplication();
+                        if (userApplication != null) {
                             ((EnjoyEndHolder) viewHolder).titleView.setText(userApplication.getEntrust_title());
                             ((EnjoyEndHolder) viewHolder).titleView.setVisibility(View.VISIBLE);
                         }
 
-                    }else{
+                    } else {
                         ((EnjoyEndHolder) viewHolder).titleView.setVisibility(View.GONE);
                     }
 
-                }else{
+                } else {
                     ((EnjoyEndHolder) viewHolder).titleView.setVisibility(View.GONE);
                 }
 
@@ -548,8 +499,8 @@ public class MyActAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 ((EnjoyEndHolder) viewHolder).btnWeituo.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent=new Intent(mContext,ReplyActivity.class);
-                        intent.putExtra("id",activitiesBean.getId());
+                        Intent intent = new Intent(mContext, ReplyActivity.class);
+                        intent.putExtra("id", activitiesBean.getId());
                         mContext.startActivity(intent);
                     }
                 });
@@ -562,7 +513,7 @@ public class MyActAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                     }
                 });
             }
-        }else {
+        } else {
             final int pos = getRealPosition(viewHolder);
             final ActivitiesBean activitiesBean = activitiesBeanList.get(pos);
             final String name = activitiesBean.getUser().getName();
@@ -575,7 +526,7 @@ public class MyActAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 ((CustomHolder) viewHolder).nameTitle.setText(activitiesBean.getTitle());
                 if (isCertificated) {
                     ((CustomHolder) viewHolder).identiView.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     ((CustomHolder) viewHolder).identiView.setVisibility(View.GONE);
                 }
 
@@ -761,9 +712,9 @@ public class MyActAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             nameLocation = (TextView) view.findViewById(R.id.tv_location);
             startimeView = (TextView) view.findViewById(R.id.tv_start_time);
 
-            weituoLayout=(RelativeLayout)view.findViewById(R.id.weituo_layout);
+            weituoLayout = (RelativeLayout) view.findViewById(R.id.weituo_layout);
             titleView = (TextView) view.findViewById(R.id.btn_edit);
-            btn_weituo= (TextView) view.findViewById(R.id.btn_weituo);
+            btn_weituo = (TextView) view.findViewById(R.id.btn_weituo);
 
         }
     }

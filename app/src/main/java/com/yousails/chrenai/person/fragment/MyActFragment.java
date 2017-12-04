@@ -20,6 +20,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.yousails.chrenai.R;
 import com.yousails.chrenai.app.ui.BaseFragment;
+import com.yousails.chrenai.common.LogUtil;
 import com.yousails.chrenai.config.ApiConstants;
 import com.yousails.chrenai.config.AppPreference;
 import com.yousails.chrenai.db.ActivitiesDBService;
@@ -61,6 +62,7 @@ import okhttp3.RequestBody;
 import static com.yousails.chrenai.home.ui.EnrollActivity.JSON;
 
 /**
+ * 报名信息——全部
  * Created by liuwen on 2017/8/10.
  */
 
@@ -84,12 +86,14 @@ public class MyActFragment extends BaseFragment {
     private boolean isLoading;
     private boolean isLoadMore;
     private int total;
-    private int pageCount=1;
+    private int pageCount = 1;
 
 
-    public MyActFragment(){}
+    public MyActFragment() {
+    }
+
     @SuppressLint({"NewApi", "ValidFragment"})
-    public MyActFragment(boolean b,int type,String from,String user) {
+    public MyActFragment(boolean b, int type, String from, String user) {
         isFinish = b;
         this.type = type;
         this.from = from;
@@ -111,10 +115,11 @@ public class MyActFragment extends BaseFragment {
     }
 
     @Override
-    public void onDestroy(){
+    public void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
     }
+
     private void findViews() {
         EventBus.getDefault().register(this);
 
@@ -131,15 +136,22 @@ public class MyActFragment extends BaseFragment {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        activitiesBeanList.clear();
-                        pageCount=1;
-                        isLoadMore=false;
-                        getUserActivities();
-                    }
-                }).start();
+
+                LogUtil.e("==onRefresh==");
+
+                activitiesBeanList.clear();
+                pageCount = 1;
+                isLoadMore = false;
+                getUserActivities();
+//                new Thread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        activitiesBeanList.clear();
+//                        pageCount = 1;
+//                        isLoadMore = false;
+//                        getUserActivities();
+//                    }
+//                }).start();
             }
         });
 
@@ -147,12 +159,12 @@ public class MyActFragment extends BaseFragment {
 
         recyclerView.setLayoutManager(new WrapContentLinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
 
-        adapter = new MyActAdapter(mContext, activitiesBeanList,type,from);
+        adapter = new MyActAdapter(mContext, activitiesBeanList, type, from);
         adapter.setOnItemClickListener(onClickListener);
         recyclerView.setAdapter(adapter);
 
         recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
-            int lastVisibleItem ;
+            int lastVisibleItem;
 
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
@@ -166,12 +178,12 @@ public class MyActFragment extends BaseFragment {
 
                 LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
                 //最后一个可见的ITEM
-                lastVisibleItem=layoutManager.findLastVisibleItemPosition();
+                lastVisibleItem = layoutManager.findLastVisibleItemPosition();
 
                 if (lastVisibleItem + 1 == adapter.getItemCount()) {
                     Log.d("test", "loading executed");
 
-                    if(lastVisibleItem+1>=total){
+                    if (lastVisibleItem + 1 >= total) {
                         adapter.setFooterSwitch(0);
                         return;
                     }
@@ -184,7 +196,7 @@ public class MyActFragment extends BaseFragment {
                     if (!isLoading) {
                         isLoading = true;
                         pageCount++;
-                        isLoadMore=true;
+                        isLoadMore = true;
                         adapter.setFooterSwitch(1);
                         getUserActivities();
                     }
@@ -202,8 +214,8 @@ public class MyActFragment extends BaseFragment {
     }
 
 
-    private void getUserActivities(){
-        if(from.equals("mine")) {
+    private void getUserActivities() {
+        if (from.equals("mine")) {
             Map<String, String> params = new HashMap<>();
             params.put("is_finished", isFinish + "");
             params.put("include", "user,category");//,userPerms
@@ -218,11 +230,14 @@ public class MyActFragment extends BaseFragment {
 
                 @Override
                 public void onResponse(String response, int id) {
-                    Log.e("user.activites",response);
+                    Log.e("user.activites", response);
                     isLoading = false;
                     swipeRefreshLayout.setRefreshing(false);
                     if (StringUtil.isNotNull(response)) {
                         try {
+
+                            LogUtil.e("===response==" + response);
+
                             JSONObject jsonObject = new JSONObject(response);
                             JSONArray jsonArray = jsonObject.optJSONArray("data");
                             JSONObject metaArray = jsonObject.optJSONObject("meta");
@@ -246,8 +261,6 @@ public class MyActFragment extends BaseFragment {
                             if (activitiesList != null && activitiesList.size() > 0) {
                                 for (int i = 0; i < activitiesList.size(); i++) {
                                     ActivitiesBean activitiesBean = activitiesList.get(i);
-                                    //UserBean userBean=activitiesBean.getUser();
-                                    //String name= userBean.getIm_username();
                                     activitiesBeanList.add(activitiesBean);
                                 }
 
@@ -259,14 +272,14 @@ public class MyActFragment extends BaseFragment {
                     }
                 }
             });
-        }else{
+        } else {
             Map<String, String> params = new HashMap<>();
             params.put("is_finished", isFinish + "");
-            params.put("id",user);
+            params.put("id", user);
             params.put("include", "user");//,userPerms
 
 
-            OkHttpUtils.get().url(ApiConstants.GET_USER+user+"/activities").params(params).build().execute(new StringCallback() {
+            OkHttpUtils.get().url(ApiConstants.GET_USER + user + "/activities").params(params).build().execute(new StringCallback() {
                 @Override
                 public void onError(Call call, String response, Exception e, int id) {
                     isLoading = false;
@@ -334,9 +347,9 @@ public class MyActFragment extends BaseFragment {
                             recyclerView.setVisibility(View.VISIBLE);
                             nodataLayout.setVisibility(View.GONE);
                             //滑动到最后一项时显示该item并执行加载更多，当加载数据完毕时需要将该item移除掉
-                            if(total>adapter.getItemCount()){
+                            if (total > adapter.getItemCount()) {
                                 adapter.setFooterSwitch(1);
-                            }else{
+                            } else {
                                 adapter.setFooterSwitch(0);
                             }
                             recyclerView.scrollToPosition(0);
@@ -351,20 +364,21 @@ public class MyActFragment extends BaseFragment {
             }
         };
     }
+
     private ActivityEditDialog mDialog;
-    OnPublishClickListener  onClickListener =new OnPublishClickListener(){
+    OnPublishClickListener onClickListener = new OnPublishClickListener() {
         @Override
         public void onItemClick(ActivitiesBean activitiesBean) {
-            String longitude=AppPreference.getInstance(mContext).readLongitude();
-            String latitude=AppPreference.getInstance(mContext).readLatitude();
-            boolean isLogin=AppPreference.getInstance(mContext).readLogin();
+            String longitude = AppPreference.getInstance(mContext).readLongitude();
+            String latitude = AppPreference.getInstance(mContext).readLatitude();
+            boolean isLogin = AppPreference.getInstance(mContext).readLogin();
             Intent intent = new Intent(mContext, ActivitDetailActivity.class);
-            intent.putExtra("bean",activitiesBean);
-            String url ="";
-            if(isLogin){
-                url = ApiConstants.BASE_URL + "/activities/" + activitiesBean.getId() + "?token=" + AppPreference.getInstance(mContext).readToken()+"&user_coordinate="+longitude+","+latitude;
-            }else{
-                url = ApiConstants.BASE_URL + "/activities/" + activitiesBean.getId() + "?user_coordinate="+longitude+","+latitude;
+            intent.putExtra("bean", activitiesBean);
+            String url = "";
+            if (isLogin) {
+                url = ApiConstants.BASE_URL + "/activities/" + activitiesBean.getId() + "?token=" + AppPreference.getInstance(mContext).readToken() + "&user_coordinate=" + longitude + "," + latitude;
+            } else {
+                url = ApiConstants.BASE_URL + "/activities/" + activitiesBean.getId() + "?user_coordinate=" + longitude + "," + latitude;
             }
 
             intent.putExtra("url", url);
@@ -374,112 +388,112 @@ public class MyActFragment extends BaseFragment {
         @Override
         public void editor(final ActivitiesBean activitiesBean) {
             //PublishActivity.launchWithActivity(mContext,activitiesBean);
-            if(mDialog==null){
+            if (mDialog == null) {
                 mDialog = new ActivityEditDialog(mContext);
             }
-                mDialog.show();
-                mDialog.setOnEditDialogListener(new ActivityEditDialog.OnEditDialogListener() {
-                    @Override
-                    public void onEdit() {
+            mDialog.show();
+            mDialog.setOnEditDialogListener(new ActivityEditDialog.OnEditDialogListener() {
+                @Override
+                public void onEdit() {
 //                        PublishActivity.launchWithActivity(mContext,activitiesBean);
 
-                        Intent intent = new Intent(mContext, PublishActivity.class);
-                        intent.putExtra("activity",activitiesBean);
-                        mContext.startActivity(intent);
+                    Intent intent = new Intent(mContext, PublishActivity.class);
+                    intent.putExtra("activity", activitiesBean);
+                    mContext.startActivity(intent);
 
-                        mDialog.dismiss();
-                        mDialog = null;
-                    }
+                    mDialog.dismiss();
+                    mDialog = null;
+                }
 
-                    @Override
-                    public void onDelete() {
-                        final YSDialog deleteDialog = new YSDialog(mContext);
-                        deleteDialog.show();
-                        deleteDialog.setTitle("确认要删除吗？");
-                        deleteDialog.setConfirm("确认删除");
-                        deleteDialog.setCancel("先不删除");
-                        deleteDialog.setOnYsDialogListenter(new YSDialog.YsDialogListener() {
-                            @Override
-                            public void onConfirm() {
-                                deleteDialog.dismiss();
-                                //deleteActivity(activitiesBean);
-                                mDialog.dismiss();
-                                mDialog = null;
-                                startActivity(new Intent(mContext, ActDelReasonActivity.class).putExtra("activity",activitiesBean));
-                            }
+                @Override
+                public void onDelete() {
+                    final YSDialog deleteDialog = new YSDialog(mContext);
+                    deleteDialog.show();
+                    deleteDialog.setTitle("确认要删除吗？");
+                    deleteDialog.setConfirm("确认删除");
+                    deleteDialog.setCancel("先不删除");
+                    deleteDialog.setOnYsDialogListenter(new YSDialog.YsDialogListener() {
+                        @Override
+                        public void onConfirm() {
+                            deleteDialog.dismiss();
+                            //deleteActivity(activitiesBean);
+                            mDialog.dismiss();
+                            mDialog = null;
+                            startActivity(new Intent(mContext, ActDelReasonActivity.class).putExtra("activity", activitiesBean));
+                        }
 
-                            @Override
-                            public void onCancel() {
-                                deleteDialog.dismiss();
-                                mDialog.dismiss();
-                                mDialog = null;
-                            }
-                        });
+                        @Override
+                        public void onCancel() {
+                            deleteDialog.dismiss();
+                            mDialog.dismiss();
+                            mDialog = null;
+                        }
+                    });
 
-                    }
+                }
 
-                    @Override
-                    public void onFinish() {
-                        final YSDialog finishDialog = new YSDialog(mContext);
-                        finishDialog.show();
-                        finishDialog.setTitle("确认要结束吗？");
-                        finishDialog.setConfirm("确认结束");
-                        finishDialog.setCancel("先不结束");
-                        finishDialog.setOnYsDialogListenter(new YSDialog.YsDialogListener() {
-                            @Override
-                            public void onConfirm() {
-                                finishDialog.dismiss();
-                                finishActivity(activitiesBean);
-                                mDialog.dismiss();
-                                mDialog = null;
-                            }
+                @Override
+                public void onFinish() {
+                    final YSDialog finishDialog = new YSDialog(mContext);
+                    finishDialog.show();
+                    finishDialog.setTitle("确认要结束吗？");
+                    finishDialog.setConfirm("确认结束");
+                    finishDialog.setCancel("先不结束");
+                    finishDialog.setOnYsDialogListenter(new YSDialog.YsDialogListener() {
+                        @Override
+                        public void onConfirm() {
+                            finishDialog.dismiss();
+                            finishActivity(activitiesBean);
+                            mDialog.dismiss();
+                            mDialog = null;
+                        }
 
-                            @Override
-                            public void onCancel() {
-                                finishDialog.dismiss();
-                                mDialog.dismiss();
-                                mDialog = null;
-                            }
-                        });
-                    }
+                        @Override
+                        public void onCancel() {
+                            finishDialog.dismiss();
+                            mDialog.dismiss();
+                            mDialog = null;
+                        }
+                    });
+                }
 
-                    @Override
-                    public void onCancel() {
-                        mDialog.dismiss();
-                        mDialog = null;
-                    }
-                });
+                @Override
+                public void onCancel() {
+                    mDialog.dismiss();
+                    mDialog = null;
+                }
+            });
 
         }
 
         @Override
         public void entrustManage(ActivitiesBean activitiesBean) {
-            Intent intent=new Intent(getActivity(), EntrustedActivity.class);
-            intent.putExtra("cid",activitiesBean.getId());
-            intent.putExtra("is_chargeable",activitiesBean.is_chargeable());
+            Intent intent = new Intent(getActivity(), EntrustedActivity.class);
+            intent.putExtra("cid", activitiesBean.getId());
+            intent.putExtra("is_chargeable", activitiesBean.is_chargeable());
             mContext.startActivity(intent);
         }
 
         @Override
         public void doMore(ActivitiesBean activitiesBean) {
-             Intent intent=new Intent(getActivity(), MoreOperActivity.class);
-             intent.putExtra("cid",activitiesBean.getId());
-             intent.putExtra("title",activitiesBean.getTitle());
-             intent.putExtra("chargeable",activitiesBean.is_chargeable());
-             intent.putExtra("from","publish");
-             intent.putExtra("activity",activitiesBean);
-             mContext.startActivity(intent);
+            Intent intent = new Intent(getActivity(), MoreOperActivity.class);
+            intent.putExtra("cid", activitiesBean.getId());
+            intent.putExtra("title", activitiesBean.getTitle());
+            intent.putExtra("chargeable", activitiesBean.is_chargeable());
+            intent.putExtra("from", "publish");
+            intent.putExtra("activity", activitiesBean);
+            mContext.startActivity(intent);
         }
     };
 
-    private void deleteActivity(ActivitiesBean bean){
+    private void deleteActivity(ActivitiesBean bean) {
         String token = AppPreference.getInstance(mContext).readToken();
         Map<String, String> params = new HashMap<>();
         params.put("reason", "1");
         RequestBody requestBody = RequestBody.create(JSON, new Gson().toJson(params));
 
 
-        OkHttpUtils.delete().url(ApiConstants.BASE_ACTIVITY_API+bean.getId()).addHeader("Authorization", token).requestBody(requestBody).build().execute(new StringCallback() {
+        OkHttpUtils.delete().url(ApiConstants.BASE_ACTIVITY_API + bean.getId()).addHeader("Authorization", token).requestBody(requestBody).build().execute(new StringCallback() {
             @Override
             public void onError(Call call, String response, Exception e, int id) {
 
@@ -497,13 +511,14 @@ public class MyActFragment extends BaseFragment {
             }
         });
     }
-    private void finishActivity(ActivitiesBean bean){
+
+    private void finishActivity(ActivitiesBean bean) {
         String token = AppPreference.getInstance(mContext).readToken();
         Map<String, String> params = new HashMap<>();
         params.put("is_finished", "1");
         RequestBody requestBody = RequestBody.create(JSON, new Gson().toJson(params));
 
-        OkHttpUtils.patch().url(ApiConstants.BASE_ACTIVITY_API+bean.getId()).addHeader("Authorization", token).requestBody(requestBody).build().execute(new StringCallback() {
+        OkHttpUtils.patch().url(ApiConstants.BASE_ACTIVITY_API + bean.getId()).addHeader("Authorization", token).requestBody(requestBody).build().execute(new StringCallback() {
             @Override
             public void onError(Call call, String response, Exception e, int id) {
 
